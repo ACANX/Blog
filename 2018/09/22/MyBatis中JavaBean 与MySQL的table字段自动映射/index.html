@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="ACANX, 面朝大海, Java">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/Blog/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/Blog/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/Blog/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/Blog/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/Blog/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/Blog/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/Blog/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/Blog/atom.xml" title="面朝大海" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/Blog/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/Blog/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/Blog/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/Blog/css/page.css">
+<link rel="stylesheet" type="text/css" href="/Blog/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/Blog/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/lightgallery.min.css">
+    <script type="text/javascript" src="/Blog/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/util.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/Blog/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/Blog/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/Blog/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/Blog/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">Copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">Copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/Blog/js/custom.js"></script>
+    <title>Markdown文章样式HTML | 面朝大海 - ACANX</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/Blog/">面朝大海</a></h1>
+        <h2 class="subtitle">ACANX</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/Blog/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/Blog/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/Blog/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/Blog/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/Blog/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/Blog/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://acanx.gitee.io/Blog/2018/09/22/MyBatis%E4%B8%ADJavaBean%20%E4%B8%8EMySQL%E7%9A%84table%E5%AD%97%E6%AE%B5%E8%87%AA%E5%8A%A8%E6%98%A0%E5%B0%84/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="ACANX">
+       <meta itemprop="description" content="面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a>">
+       <meta itemprop="image" content="/Blog/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="面朝大海">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Markdown文章样式HTML</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-09-22T20:55:48+08:00">2018-09-22 20:55:48</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/Blog/categories/%E9%BB%98%E8%AE%A4/" itemprop="url" rel="index"><span itemprop="name">默认</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <hr>
+<h1 id="MyBatis自动映射"><a href="#MyBatis自动映射" class="headerlink" title="MyBatis自动映射"></a>MyBatis自动映射</h1><p> 在简单的场景下，MyBatis可以替你自动映射查询结果。 如果遇到复杂的场景，你需要构建一个result map。 但是在这里你将看到，你也可以混合使用这两种策略。<br>我们再深入看看自动映射是怎样工作的。当自动映射查询结果时，MyBatis会获取sql返回的列名并在java类中查找相同名字的属性（忽略大小写）。 这意味着如果Mybatis发现了ID列和id属性，Mybatis会将ID的值赋给id。通常数据库列使用大写单词命名，单词间用下划线分隔；而java属性一般遵循驼峰命名法。 为了在这两种命名方式之间启用自动映射，需要将 mapUnderscoreToCamelCase设置为true。自动映射甚至在特定的result map下也能工作。在这种情况下，对于每一个result map,所有的ResultSet提供的列， 如果没有被手工映射，则将被自动映射。自动映射处理完毕后手工映射才会被处理。 在接下来的例子中， id 和 userName列将被自动映射， hashed_password 列将根据配置映射。</p>
+<h3 id="UserMapper-xml中的配置："><a href="#UserMapper-xml中的配置：" class="headerlink" title="UserMapper.xml中的配置："></a>UserMapper.xml中的配置：</h3><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">resultMap</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;userResultMap&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;User&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;hash_password&quot;</span> /&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;gmt_create&quot;</span> <span class="hljs-attr">jdbcType</span>=<span class="hljs-string">&quot;TIMESTAMP&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;gmtCreate&quot;</span> <span class="hljs-attr">javaType</span>=<span class="hljs-string">&quot;java.util.Date&quot;</span> /&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;gmt_modified&quot;</span> <span class="hljs-attr">jdbcType</span>=<span class="hljs-string">&quot;TIMESTAMP&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;gmtModified&quot;</span> <span class="hljs-attr">javaType</span>=<span class="hljs-string">&quot;java.util.Date&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">resultMap</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="mybatis-config-xml中的配置："><a href="#mybatis-config-xml中的配置：" class="headerlink" title="mybatis-config.xml中的配置："></a>mybatis-config.xml中的配置：</h3><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>     <br> <span class="hljs-tag">&lt;<span class="hljs-name">settings</span>&gt;</span>       <br>  <span class="hljs-tag">&lt;<span class="hljs-name">setting</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;mapUnderscoreToCamelCase&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;true&quot;</span> /&gt;</span><br> <span class="hljs-tag">&lt;/<span class="hljs-name">settings</span>&gt;</span>  <br><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><h2 id="英语听力考试试音时间"><a href="#英语听力考试试音时间" class="headerlink" title="英语听力考试试音时间"></a>英语听力考试试音时间</h2><p>小车正穿行在洛基山脉蜿蜒曲折的盘山公路上，克里朵托夫里维静静地看着窗外，发现车子每当行驶到无路的关头，</p>
+<p>路边都会出现一块交通指示牌：“前方转弯”或写着“注意急转弯”。而转过每一道弯道之后前方照例又是一片柳暗花明、豁然开朗。</p>
+<p>山路弯弯、峰回路转，“前方转弯”几个大字一次次冲击着他的眼球，也渐渐敲醒了他的心扉。</p>
+<p>原来不是路已到了尽头，而是该转弯了……路在脚下，更在心中，心随路转，心路常宽。</p>
+<p>学会转弯也是人生的智慧，因为挫折往往是转折，危机同时是转机。</p>
+<h3 id="代码样式"><a href="#代码样式" class="headerlink" title="代码样式"></a>代码样式</h3><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h1 id="Markdown中实现首行缩进的两种方法"><a href="#Markdown中实现首行缩进的两种方法" class="headerlink" title="Markdown中实现首行缩进的两种方法"></a>Markdown中实现首行缩进的两种方法</h1><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><p>半方大的空白&ensp;或&#8194;</p>
+<h3 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h3><p>全方大的空白&emsp;或&#8195;</p>
+<h3 id="方法3"><a href="#方法3" class="headerlink" title="方法3"></a>方法3</h3><p>不断行的空白格&nbsp;或&#160;</p>
+<hr>
+<p>&emsp;&emsp;量子霸权的实现，将是量子计算发展的一座重要里程碑，代表「量子计算的超强计算能力」自 37 年前提出以来首次从理论走进实验，标志一个新的计算能力飞跃时代的开始。近年来，随着「实现量子霸权」的日益临近，「称霸标准」成为量子计算领域最重要的科学问题之一。</p>
+<p>我国科学家最早开启了「称霸标准」问题的研究。最近，《国家科学评论》（National Science Review）以「A Benchmark Test of Boson Sampling on Tianhe-2 Supercomputer」为题正式发表了国防科技大学吴俊杰团队与上海交通大学金贤敏教授的合作研究成果，报道了玻色采样案例的「称霸标准」。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/Blog/tags/MyBatis/" rel="tag"><i class="fas fa-tags"></i>MyBatis</a>
+        
+        <a class="post-tag button" href="/Blog/tags/JavaBean/" rel="tag"><i class="fas fa-tags"></i>JavaBean</a>
+        
+        <a class="post-tag button" href="/Blog/tags/MySQL/" rel="tag"><i class="fas fa-tags"></i>MySQL</a>
+        
+        <a class="post-tag button" href="/Blog/tags/%E8%87%AA%E5%8A%A8%E6%98%A0%E5%B0%84/" rel="tag"><i class="fas fa-tags"></i>自动映射</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/Blog/2018/09/16/%E6%96%87%E7%AB%A0%E6%A0%B7%E5%BC%8FHTML/" rel="next" title="Markdown文章样式HTML"><i class="fas fa-angle-left"></i><span class="nav-title">Markdown文章样式HTML</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/Blog/2019/11/22/Spring-IoC%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%AF%BC%E8%AF%BB/" rel="prev" title="Spring-IoC容器源码导读"><span class="nav-title">Spring-IoC容器源码导读</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/Blog/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/Blog/images/avatar.png" alt="ACANX">
+  
+  <h1 class="author-name">ACANX</h1>
+  <h2 class="author-description">面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a></h2>
+  <div class="site-count">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/Blog/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#MyBatis%E8%87%AA%E5%8A%A8%E6%98%A0%E5%B0%84"><span class="toc-text">MyBatis自动映射</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#UserMapper-xml%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="toc-text">UserMapper.xml中的配置：</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#mybatis-config-xml%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="toc-text">mybatis-config.xml中的配置：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E6%A0%87%E9%A2%98%E4%B8%80"><span class="toc-text">标题一</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%A0%87%E9%A2%98%E4%BA%8C"><span class="toc-text">标题二</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E8%8B%B1%E8%AF%AD%E5%90%AC%E5%8A%9B%E8%80%83%E8%AF%95%E8%AF%95%E9%9F%B3%E6%97%B6%E9%97%B4"><span class="toc-text">英语听力考试试音时间</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F"><span class="toc-text">代码样式</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-text">四级标题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Markdown%E4%B8%AD%E5%AE%9E%E7%8E%B0%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-text">Markdown中实现首行缩进的两种方法</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%96%B9%E6%B3%951"><span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%96%B9%E6%B3%952"><span class="toc-text">方法2</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%96%B9%E6%B3%953"><span class="toc-text">方法3</span></a></li></ol></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>Social Links</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:acanx@qq.com" target="_blank">电子邮箱</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/acxnx" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/acanx" target="_blank">微博</a></li>
+        
+        <li><i class="fab fa-blog"></i><a href="https://blog.acanx.com/" target="_blank">个人博客</a></li>
+        
+        <li><i class="fab fa-blog"></i><a href="https://my.oschina.net/Adven" target="_blank">开源中国</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>Blogroll</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/acxnx" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">ACANX</span><span class="year"><i class="far fa-copyright"></i>2015 - 2021</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.gitee.com/" target="_blank">Gitee Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

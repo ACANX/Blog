@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="ACANX, 面朝大海, Java">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/Blog/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/Blog/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/Blog/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/Blog/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/Blog/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/Blog/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/Blog/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/Blog/atom.xml" title="面朝大海" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/Blog/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/Blog/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/Blog/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/Blog/css/page.css">
+<link rel="stylesheet" type="text/css" href="/Blog/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/Blog/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/lightgallery.min.css">
+    <script type="text/javascript" src="/Blog/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/util.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/Blog/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/Blog/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/Blog/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/Blog/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">Copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">Copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/Blog/js/custom.js"></script>
+    <title>Java之23种设计模式深入理解 | 面朝大海 - ACANX</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/Blog/">面朝大海</a></h1>
+        <h2 class="subtitle">ACANX</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/Blog/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/Blog/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/Blog/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/Blog/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/Blog/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/Blog/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://acanx.gitee.io/Blog/2019/11/25/Java%E5%AD%A6%E4%B9%A0%E4%B9%8B23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="ACANX">
+       <meta itemprop="description" content="面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a>">
+       <meta itemprop="image" content="/Blog/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="面朝大海">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Java之23种设计模式深入理解</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2019-11-25T15:55:48+08:00">2019-11-25 15:55:48</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/Blog/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="设计模式（Design-Pattern）"><a href="#设计模式（Design-Pattern）" class="headerlink" title="设计模式（Design Pattern）"></a>设计模式（Design Pattern）</h1><p>设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化，设计模式是软件工程的基石，如同大厦的一块块砖石一样。项目中合理的运用设计模式可以完美的解决很多问题，每种模式在现在中都有相应的原理来与之对应，每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的核心解决方案，这也是它能被广泛应用的原因。</p>
+<!--  - 本章系Java之美[从菜鸟到高手演变]系列之设计模式，我们会以理论与实践相结合的方式来进行本章的学习，希望广大程序爱好者，学好设计模式，做一个优秀的软件工程师！-->
+
+
+<h1 id="一、设计模式的分类"><a href="#一、设计模式的分类" class="headerlink" title="一、设计模式的分类"></a>一、设计模式的分类</h1><ul>
+<li>总体来说设计模式分为三大类：</li>
+</ul>
+<h2 id="创建型模式，"><a href="#创建型模式，" class="headerlink" title="创建型模式，"></a>创建型模式，</h2><ul>
+<li>共五种：工厂方法模式、抽象工厂模式、单例模式、建造者模式、原型模式。</li>
+</ul>
+<h2 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h2><ul>
+<li>共七种：适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式。</li>
+</ul>
+<h2 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h2><ul>
+<li>共十一种：策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。</li>
+</ul>
+<h3 id="其他模式"><a href="#其他模式" class="headerlink" title="其他模式"></a>其他模式</h3><ul>
+<li>其实还有两类：并发型模式和线程池模式。用一个图片来整体描述一下：<br><img src="/Blog/static/image/20191125/RelationshipBetweenDesignPattern.jpg" alt="设计模式之间的关系"></li>
+</ul>
+<!--  http://www.itmayun.com/upload_files/files/1/subject/995726589692643/1.jpg  -->
+
+<h1 id="二、设计模式的六大原则"><a href="#二、设计模式的六大原则" class="headerlink" title="二、设计模式的六大原则"></a>二、设计模式的六大原则</h1><h2 id="1、开闭原则（Open-Close-Principle）"><a href="#1、开闭原则（Open-Close-Principle）" class="headerlink" title="1、开闭原则（Open Close Principle）"></a>1、开闭原则（Open Close Principle）</h2><ul>
+<li>开闭原则就是说对扩展开放，对修改关闭。在程序需要进行拓展的时候，不能去修改原有的代码，实现一个热插拔的效果。所以一句话概括就是：为了使程序的扩展性好，易于维护和升级。想要达到这样的效果，我们需要使用接口和抽象类，后面的具体设计中我们会提到这点。</li>
+</ul>
+<h2 id="2、里氏代换原则（Liskov-Substitution-Principle）"><a href="#2、里氏代换原则（Liskov-Substitution-Principle）" class="headerlink" title="2、里氏代换原则（Liskov Substitution Principle）"></a>2、里氏代换原则（Liskov Substitution Principle）</h2><ul>
+<li>里氏代换原则(Liskov Substitution Principle LSP)面向对象设计的基本原则之一。 里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。 LSP是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。里氏代换原则是对“开-闭”原则的补充。实现“开-闭”原则的关键步骤就是抽象化。而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。</li>
+</ul>
+<h2 id="3、依赖倒转原则（Dependence-Inversion-Principle）"><a href="#3、依赖倒转原则（Dependence-Inversion-Principle）" class="headerlink" title="3、依赖倒转原则（Dependence Inversion Principle）"></a>3、依赖倒转原则（Dependence Inversion Principle）</h2><ul>
+<li>这个是开闭原则的基础，具体内容：真对接口编程，依赖于抽象而不依赖于具体。</li>
+</ul>
+<h2 id="4、接口隔离原则（Interface-Segregation-Principle）"><a href="#4、接口隔离原则（Interface-Segregation-Principle）" class="headerlink" title="4、接口隔离原则（Interface Segregation Principle）"></a>4、接口隔离原则（Interface Segregation Principle）</h2><ul>
+<li>这个原则的意思是：使用多个隔离的接口，比使用单个接口要好。还是一个降低类之间的耦合度的意思，从这儿我们看出，其实设计模式就是一个软件的设计思想，从大型软件架构出发，为了升级和维护方便。所以上文中多次出现：降低依赖，降低耦合。</li>
+</ul>
+<h2 id="5、迪米特法则（最少知道原则）（Demeter-Principle）"><a href="#5、迪米特法则（最少知道原则）（Demeter-Principle）" class="headerlink" title="5、迪米特法则（最少知道原则）（Demeter Principle）"></a>5、迪米特法则（最少知道原则）（Demeter Principle）</h2><ul>
+<li>最少知道原则，就是说：一个实体应当尽量少的与其他实体之间发生相互作用，使得系统功能模块相对独立。</li>
+</ul>
+<h2 id="6、合成复用原则（Composite-Reuse-Principle）"><a href="#6、合成复用原则（Composite-Reuse-Principle）" class="headerlink" title="6、合成复用原则（Composite Reuse Principle）"></a>6、合成复用原则（Composite Reuse Principle）</h2><ul>
+<li>原则是尽量使用合成/聚合的方式，而不是使用继承。</li>
+</ul>
+<h1 id="模式分类Demo源码"><a href="#模式分类Demo源码" class="headerlink" title="模式分类Demo源码"></a>模式分类Demo源码</h1><ul>
+<li>参考：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/foryang/p/5849402.html">http://www.cnblogs.com/foryang/p/5849402.html</a></li>
+<li>以下是学习过程中查询到的资料,比较容易理解(毕竟站在巨人的肩膀上…)</li>
+</ul>
+<h2 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h2><ul>
+<li>抽象工厂模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/03/28/2418836.html">http://www.cnblogs.com/java-my-life/archive/2012/03/28/2418836.html</a></li>
+<li>工厂方法 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/03/25/2416227.html">http://www.cnblogs.com/java-my-life/archive/2012/03/25/2416227.html</a></li>
+<li>建造者模式  <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/04/07/2433939.html">http://www.cnblogs.com/java-my-life/archive/2012/04/07/2433939.html</a></li>
+<li>原型模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/04/11/2439387.html">http://www.cnblogs.com/java-my-life/archive/2012/04/11/2439387.html</a></li>
+<li>单态模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/03/31/2425631.html">http://www.cnblogs.com/java-my-life/archive/2012/03/31/2425631.html</a></li>
+</ul>
+<h2 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h2><ul>
+<li>适配器模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/04/13/2442795.html">http://www.cnblogs.com/java-my-life/archive/2012/04/13/2442795.html</a></li>
+<li>桥接模式 <a target="_blank" rel="noopener" href="http://blog.csdn.net/jason0539/article/details/22568865">http://blog.csdn.net/jason0539/article/details/22568865</a></li>
+<li>组合模式 <a target="_blank" rel="noopener" href="http://blog.csdn.net/jason0539/article/details/22642281">http://blog.csdn.net/jason0539/article/details/22642281</a></li>
+<li>外观模式 <a target="_blank" rel="noopener" href="http://blog.csdn.net/jason0539/article/details/22775311">http://blog.csdn.net/jason0539/article/details/22775311</a></li>
+<li>装饰者模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/04/20/2455726.html">http://www.cnblogs.com/java-my-life/archive/2012/04/20/2455726.html</a></li>
+<li>享元模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/04/26/2468499.html">http://www.cnblogs.com/java-my-life/archive/2012/04/26/2468499.html</a></li>
+<li>代理模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/04/23/2466712.html">http://www.cnblogs.com/java-my-life/archive/2012/04/23/2466712.html</a></li>
+</ul>
+<h2 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h2><ul>
+<li>责任链模式 <a target="_blank" rel="noopener" href="http://blog.csdn.net/zhouyong0/article/details/7909456">http://blog.csdn.net/zhouyong0/article/details/7909456</a></li>
+<li>命令模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/06/01/2526972.html">http://www.cnblogs.com/java-my-life/archive/2012/06/01/2526972.html</a></li>
+<li>解释器模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/06/19/2552617.html">http://www.cnblogs.com/java-my-life/archive/2012/06/19/2552617.html</a></li>
+<li>迭代模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/05/22/2511506.html">http://www.cnblogs.com/java-my-life/archive/2012/05/22/2511506.html</a></li>
+<li>中介者模式 <a target="_blank" rel="noopener" href="http://blog.csdn.net/chenhuade85/article/details/8141831">http://blog.csdn.net/chenhuade85/article/details/8141831</a></li>
+<li>备忘录模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/06/06/2534942.html">http://www.cnblogs.com/java-my-life/archive/2012/06/06/2534942.html</a></li>
+<li>观察者模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/05/16/2502279.html">http://www.cnblogs.com/java-my-life/archive/2012/05/16/2502279.html</a></li>
+<li>状态模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/06/08/2538146.html">http://www.cnblogs.com/java-my-life/archive/2012/06/08/2538146.html</a></li>
+<li>策略模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/05/10/2491891.html">http://www.cnblogs.com/java-my-life/archive/2012/05/10/2491891.html</a></li>
+<li>模板方法模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/05/14/2495235.html">http://www.cnblogs.com/java-my-life/archive/2012/05/14/2495235.html</a></li>
+<li>访问者模式 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/java-my-life/archive/2012/06/14/2545381.html">http://www.cnblogs.com/java-my-life/archive/2012/06/14/2545381.html</a></li>
+</ul>
+<h2 id="题外-http-www-ourlove1314-com"><a href="#题外-http-www-ourlove1314-com" class="headerlink" title="题外: http://www.ourlove1314.com/"></a>题外: <a target="_blank" rel="noopener" href="http://www.ourlove1314.com/">http://www.ourlove1314.com/</a></h2><h2 id="设计模式学习资料汇总"><a href="#设计模式学习资料汇总" class="headerlink" title="设计模式学习资料汇总"></a>设计模式学习资料汇总</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/ACANX/ACANX-JavaSEBase/tree/master/ACANX-JavaSE-Core/src/main/java/com/acanx/designpattern">我的设计模式Demo代码</a></li>
+<li><a href="https://acanx.gitee.io/blog/2018/07/12/Java%2023%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">Java 23种设计模式 深入理解</a> </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/feixiao/DesignPattern/tree/master/Java">feixiao/DesignPattern</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/design-pattern-tutorial.html">设计模式-菜鸟教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/bjmashibing/DesignPatterns">bjmashibing/DesignPatterns</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013829202/article/details/52513029">非常全的23种设计模式详解，收藏了</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/online-demo/spring5projectdemo/tree/master/chapter20/src/main/java/com/test">《Spring 5企业级开发实战》-设计模式源码</a></li>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/1364.html">设计模式-C语言中文网</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenssy/p/3357683.html">设计模式总结</a></li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/Blog/tags/Java/" rel="tag"><i class="fas fa-tags"></i>Java</a>
+        
+        <a class="post-tag button" href="/Blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fas fa-tags"></i>设计模式</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/Blog/2019/11/22/Spring-IoC%E5%AE%B9%E5%99%A8%E6%BA%90%E7%A0%81%E5%AF%BC%E8%AF%BB/" rel="next" title="Spring-IoC容器源码导读"><i class="fas fa-angle-left"></i><span class="nav-title">Spring-IoC容器源码导读</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/Blog/2021/03/14/%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/" rel="prev" title="文章汇总"><span class="nav-title">文章汇总</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/Blog/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/Blog/images/avatar.png" alt="ACANX">
+  
+  <h1 class="author-name">ACANX</h1>
+  <h2 class="author-description">面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a></h2>
+  <div class="site-count">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/Blog/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88Design-Pattern%EF%BC%89"><span class="toc-text">设计模式（Design Pattern）</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E4%B8%80%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">一、设计模式的分类</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%EF%BC%8C"><span class="toc-text">创建型模式，</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F"><span class="toc-text">结构型模式</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F"><span class="toc-text">行为型模式</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%85%B6%E4%BB%96%E6%A8%A1%E5%BC%8F"><span class="toc-text">其他模式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E4%BA%8C%E3%80%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="toc-text">二、设计模式的六大原则</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#1%E3%80%81%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99%EF%BC%88Open-Close-Principle%EF%BC%89"><span class="toc-text">1、开闭原则（Open Close Principle）</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#2%E3%80%81%E9%87%8C%E6%B0%8F%E4%BB%A3%E6%8D%A2%E5%8E%9F%E5%88%99%EF%BC%88Liskov-Substitution-Principle%EF%BC%89"><span class="toc-text">2、里氏代换原则（Liskov Substitution Principle）</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#3%E3%80%81%E4%BE%9D%E8%B5%96%E5%80%92%E8%BD%AC%E5%8E%9F%E5%88%99%EF%BC%88Dependence-Inversion-Principle%EF%BC%89"><span class="toc-text">3、依赖倒转原则（Dependence Inversion Principle）</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#4%E3%80%81%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99%EF%BC%88Interface-Segregation-Principle%EF%BC%89"><span class="toc-text">4、接口隔离原则（Interface Segregation Principle）</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#5%E3%80%81%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99%EF%BC%88%E6%9C%80%E5%B0%91%E7%9F%A5%E9%81%93%E5%8E%9F%E5%88%99%EF%BC%89%EF%BC%88Demeter-Principle%EF%BC%89"><span class="toc-text">5、迪米特法则（最少知道原则）（Demeter Principle）</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#6%E3%80%81%E5%90%88%E6%88%90%E5%A4%8D%E7%94%A8%E5%8E%9F%E5%88%99%EF%BC%88Composite-Reuse-Principle%EF%BC%89"><span class="toc-text">6、合成复用原则（Composite Reuse Principle）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E6%A8%A1%E5%BC%8F%E5%88%86%E7%B1%BBDemo%E6%BA%90%E7%A0%81"><span class="toc-text">模式分类Demo源码</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%88%9B%E5%BB%BA%E5%9E%8B"><span class="toc-text">创建型</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B"><span class="toc-text">结构型</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B"><span class="toc-text">行为型</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E9%A2%98%E5%A4%96-http-www-ourlove1314-com"><span class="toc-text">题外: http:&#x2F;&#x2F;www.ourlove1314.com&#x2F;</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB"><span class="toc-text">设计模式学习资料汇总</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>Social Links</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:acanx@qq.com" target="_blank">电子邮箱</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/acxnx" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/acanx" target="_blank">微博</a></li>
+        
+        <li><i class="fab fa-blog"></i><a href="https://blog.acanx.com/" target="_blank">个人博客</a></li>
+        
+        <li><i class="fab fa-blog"></i><a href="https://my.oschina.net/Adven" target="_blank">开源中国</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>Blogroll</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/acxnx" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">ACANX</span><span class="year"><i class="far fa-copyright"></i>2015 - 2021</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.gitee.com/" target="_blank">Gitee Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
