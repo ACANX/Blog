@@ -234,43 +234,28 @@
       </div>
     </header>
     <main class="post-main" itemprop="articleBody">
-      <h2 id="java-原码、反码、补码计算-以及取反-运算"><a href="#java-原码、反码、补码计算-以及取反-运算" class="headerlink" title="java 原码、反码、补码计算 以及取反(~)运算"></a>java 原码、反码、补码计算 以及取反(~)运算</h2><h3 id="1-原码、反码、补码："><a href="#1-原码、反码、补码：" class="headerlink" title="1.原码、反码、补码："></a>1.原码、反码、补码：</h3><pre><code> (1)在Java中，所有数据的表示方式都是以补码形式来表示
- (2)正数：原码、反码、补码相同
- (3)负数：符号位为1，其余各位是对原码取反，然后整个数加1
- (4)~按位取反（反码加1称为补码。）步骤就是先求出这个数（因为java存的数是补码）的原码，然后对原码取反得到X，这个X就是我们要求的那个数的补码
-</code></pre>
-<h3 id="2-取反-运算"><a href="#2-取反-运算" class="headerlink" title="2.取反(~)运算"></a>2.取反(~)运算</h3><pre><code> （1）n=37 ，二进制数就是 100101
- 因为在Java中，所有数据的表示方式都是以补码形式来表示，如果没有特别的说明，
- Java 中的数据类型默认为int，int数据类型的长度为8位，就是32字节，32bit的意思，因此，n=100101的原码=补码（因为是正数，所以原=补=反）运算过程就是：
- 原码：00000000 00000000 00000000 00100101 ＝37
-
-
- ~n（对n的原码）取反运算得：  11111111 11111111 11111111 11011010很明显，最高位是1，意思是原码为负数，负数的补码是其绝对值的原码取反，末尾再加1，因此，我们可将这个二进制数的补码进行还原：
- 首先，末尾减1得反码：11111111 11111111 11111111 11011001
- 其次，将各位取反得原码：00000000 00000000 00000000 00100110这个就是~n的绝对值形式，|~n|=38   ，
-
- 所以，~n＝－38，这个就是Java虚拟机的运算结果
-
-
- （2）n=-4，取反 （~-4）
- -4补码：10000000 00000000 00000000 00000100
- -4反码：10000000 00000000 00000000 00000011
- -4原码：11111111 11111111 11111111 11111100
- 对原码取反：00000000 00000000 00000000 00000011  （3）
- 因为是正数，所以补码等于原码等于反码=3，所以~-4=3
-</code></pre>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">deploy:<br>  - <span class="hljs-built_in">type</span>: git<br>    repo: <span class="hljs-comment"># 像这样设置多个 git 仓库，`名称: 地址,分支`，逗号后面没有空格。</span><br>      github: git@github.com:XXXXXX/XXXXXX.git,branch<br>      coding: git@git.coding.net:XXXXXXX/XXXXXXX,coding-pages<br>    message: Site updated by Hexo at &#123;&#123; now(<span class="hljs-string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span>) &#125;&#125;.<br>  - <span class="hljs-built_in">type</span>: rsync<br>    host: YOUR VPS IP <span class="hljs-comment"># 你的服务器的 IP 地址</span><br>    user: YOUR USERNAME <span class="hljs-comment"># 你刚刚复制密钥的那个用户</span><br>    root: YOUR DESTINATION <span class="hljs-comment"># 你想把文件上传到哪里，比如我的是 `~/stackharbor.alynx.xyz/`</span><br>    port: 22 <span class="hljs-comment"># 这是 ssh 默认的端口，如果你修改了，这里也要改</span><br>    args: --progress <span class="hljs-comment"># 额外的 rsync 参数，我这里添加了一个进度条参数，你也可以不设置</span><br>    delete: <span class="hljs-literal">true</span> <span class="hljs-comment"># 是否删除旧的文件</span><br>    verbose: <span class="hljs-literal">true</span> <span class="hljs-comment"># 是否同步时显示详细状态</span><br>    ignore_errors: <span class="hljs-literal">false</span> <span class="hljs-comment"># 忽略错误</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+      <h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><p>for</p>
+<p>foreach</p>
+<h1 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h1><ul>
+<li><p>if  else</p>
+</li>
+<li><p>while </p>
+</li>
+<li><p>switch  case default</p>
+</li>
+</ul>
+<ul>
+<li><p>continue</p>
+</li>
+<li><p>break</p>
+</li>
+</ul>
+<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><ul>
+<li>自己调用自己</li>
+</ul>
+<h1 id="goto"><a href="#goto" class="headerlink" title="goto"></a>goto</h1><ul>
+<li>不建议使用</li>
+</ul>
 
     </main>
     <footer class="post-footer">
@@ -351,7 +336,7 @@
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
       <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#java-%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%E8%AE%A1%E7%AE%97-%E4%BB%A5%E5%8F%8A%E5%8F%96%E5%8F%8D-%E8%BF%90%E7%AE%97"><span class="toc-text">java 原码、反码、补码计算 以及取反(~)运算</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%EF%BC%9A"><span class="toc-text">1.原码、反码、补码：</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-%E5%8F%96%E5%8F%8D-%E8%BF%90%E7%AE%97"><span class="toc-text">2.取反(~)运算</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-text">循环</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E6%9D%A1%E4%BB%B6"><span class="toc-text">条件</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E9%80%92%E5%BD%92"><span class="toc-text">递归</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#goto"><span class="toc-text">goto</span></a></li></ol></div>
     </div>
     
     

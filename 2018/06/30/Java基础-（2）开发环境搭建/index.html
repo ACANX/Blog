@@ -235,7 +235,30 @@
     </header>
     <main class="post-main" itemprop="articleBody">
       <hr>
+<h1 id="搭建前准备"><a href="#搭建前准备" class="headerlink" title="搭建前准备"></a>搭建前准备</h1><h1 id="一-搭建前准备"><a href="#一-搭建前准备" class="headerlink" title="一 搭建前准备"></a>一 搭建前准备</h1><h2 id="梳理主要步骤"><a href="#梳理主要步骤" class="headerlink" title="梳理主要步骤"></a>梳理主要步骤</h2><ul>
+<li>1.确定安装环境Windows 、Linux（Ubuntu）及系统版本</li>
+<li>2.下载JDK及相关软件</li>
+<li>3.安装JDK</li>
+<li>4.配置环境变量</li>
+<li>5.测试验证</li>
+</ul>
+<h2 id="安装所需资源"><a href="#安装所需资源" class="headerlink" title="安装所需资源"></a>安装所需资源</h2><p>JDK下载地址（需提前注册）：    【URL待补充】</p>
+<h1 id="Windows-10-系统下的安装"><a href="#Windows-10-系统下的安装" class="headerlink" title="Windows 10 系统下的安装"></a>Windows 10 系统下的安装</h1><h2 id="1-安装JDK"><a href="#1-安装JDK" class="headerlink" title="1. 安装JDK"></a>1. 安装JDK</h2><h2 id="2-配置JDK环境变量"><a href="#2-配置JDK环境变量" class="headerlink" title="2.配置JDK环境变量"></a>2.配置JDK环境变量</h2><h2 id="3-测试程序准备及验证"><a href="#3-测试程序准备及验证" class="headerlink" title="3.测试程序准备及验证"></a>3.测试程序准备及验证</h2><ul>
+<li>安装后检查<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">java -version<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">【此处显示Java版本信息】<br></code></pre></td></tr></table></figure></li>
+</ul>
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java">-- HelloWorld.java<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorld</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>       System.out.println(<span class="hljs-string">&quot;你好，世界！&quot;</span>);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<ul>
+<li>编译运行Demo程序  <figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">java HelloWorld.java<br></code></pre></td></tr></table></figure></li>
+</ul>
+<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">你好，世界！<br></code></pre></td></tr></table></figure>
 
+<p>至此完成JDK的安装及验证</p>
+<h1 id="Ubuntu-系统下的安装"><a href="#Ubuntu-系统下的安装" class="headerlink" title="Ubuntu 系统下的安装"></a>Ubuntu 系统下的安装</h1><h2 id="1-安装前说明"><a href="#1-安装前说明" class="headerlink" title="1.安装前说明"></a>1.安装前说明</h2><ul>
+<li>详细安装步骤可以参考链接：</li>
+<li>JDK下载地址   </li>
+</ul>
+<h2 id="2-配置软件源"><a href="#2-配置软件源" class="headerlink" title="2.配置软件源"></a>2.配置软件源</h2><h2 id="3-安装软件"><a href="#3-安装软件" class="headerlink" title="3.安装软件"></a>3.安装软件</h2><h2 id="4-测试验证"><a href="#4-测试验证" class="headerlink" title="4.测试验证"></a>4.测试验证</h2>
     </main>
     <footer class="post-footer">
       
@@ -311,6 +334,12 @@
     
     
     
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E6%90%AD%E5%BB%BA%E5%89%8D%E5%87%86%E5%A4%87"><span class="toc-text">搭建前准备</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E4%B8%80-%E6%90%AD%E5%BB%BA%E5%89%8D%E5%87%86%E5%A4%87"><span class="toc-text">一 搭建前准备</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%A2%B3%E7%90%86%E4%B8%BB%E8%A6%81%E6%AD%A5%E9%AA%A4"><span class="toc-text">梳理主要步骤</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%AE%89%E8%A3%85%E6%89%80%E9%9C%80%E8%B5%84%E6%BA%90"><span class="toc-text">安装所需资源</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Windows-10-%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">Windows 10 系统下的安装</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#1-%E5%AE%89%E8%A3%85JDK"><span class="toc-text">1. 安装JDK</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#2-%E9%85%8D%E7%BD%AEJDK%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">2.配置JDK环境变量</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#3-%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F%E5%87%86%E5%A4%87%E5%8F%8A%E9%AA%8C%E8%AF%81"><span class="toc-text">3.测试程序准备及验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#Ubuntu-%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">Ubuntu 系统下的安装</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#1-%E5%AE%89%E8%A3%85%E5%89%8D%E8%AF%B4%E6%98%8E"><span class="toc-text">1.安装前说明</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#2-%E9%85%8D%E7%BD%AE%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="toc-text">2.配置软件源</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#3-%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-text">3.安装软件</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#4-%E6%B5%8B%E8%AF%95%E9%AA%8C%E8%AF%81"><span class="toc-text">4.测试验证</span></a></li></ol></li></ol></div>
+    </div>
     
     
     
