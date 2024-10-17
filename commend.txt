@@ -1,4 +1,0 @@
-hexo new post article-test
-
-
-hexo -g 
