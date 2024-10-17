@@ -45,3 +45,8 @@ hexo server
 
 - 访问 [http://localhost:4000/Blog/](http://localhost:4000/Blog/) 查看
 
+
+
+# 参考链接
+
+- [https://hexo.io/zh-cn/](https://hexo.io/zh-cn/)
