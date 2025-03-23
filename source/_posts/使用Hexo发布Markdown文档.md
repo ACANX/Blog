@@ -1,7 +1,7 @@
 ---
 title: 使用Hexo发布Markdown文档
 date: 2025-03-20 12:00:00
-categories: "Markdown" #文章分类目录 可以省略
+categories: "Markdown" # 文章分类目录 可以省略
 tags: 
      - Hexo
      - Markdown
