@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/Blog/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/Blog/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/Blog/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/Blog/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/Blog/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/Blog/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/Blog/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/Blog/atom.xml" title="ACANX" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/Blog/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/Blog/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/Blog/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/Blog/css/page.css">
+<link rel="stylesheet" type="text/css" href="/Blog/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/Blog/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/lightgallery.min.css">
+    <script type="text/javascript" src="/Blog/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/util.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/Blog/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/Blog/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/Blog/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/Blog/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/Blog/js/custom.js"></script>
+    <title>使用MkDocs发布Markdown文档 | ACANX - 博客</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/Blog/">ACANX</a></h1>
+        <h2 class="subtitle">博客</h2>
+      </div>
+      <div class="logo">
+        <img src="/Blog/images/ARIA_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/Blog/">首頁</a></li>
+    
+    <li><a href="/Blog/archives/">歸檔</a></li>
+    
+    <li><a href="/Blog/categories/">分類</a></li>
+    
+    <li><a href="/Blog/tags/">標籤</a></li>
+    
+    <li><a href="/Blog/about/">關於</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://acanx.gitee.io/Blog/2025/03/20/%E4%BD%BF%E7%94%A8MKDocs%E5%8F%91%E5%B8%83Markdown%E6%96%87%E6%A1%A3/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="ACANX">
+       <meta itemprop="description" content="面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a>">
+       <meta itemprop="image" content="/Blog/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="ACANX">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">使用MkDocs发布Markdown文档</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2025-03-20T13:00:00+08:00">2025-03-20 13:00:00</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/Blog/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p><a target="_blank" rel="noopener" href="https://www.mkdocs.org/">MkDocs</a> 是一款快速、简单且极其出色的静态站点生成器，旨在构建项目文档。文档源文件以 Markdown 编写，并使用单个 YAML 配置文件进行配置。首先阅读<a target="_blank" rel="noopener" href="https://www.mkdocs.org/getting-started/">入门教程</a>，然后查看 <a target="_blank" rel="noopener" href="https://www.mkdocs.org/user-guide/">用户指南</a>以了解更多信息。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>要安装 MkDocs，请从命令行运行以下命令：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install mkdocs<br></code></pre></td></tr></table></figure>
+
+<p>有关详细信息，请参阅安装指南。</p>
+<h1 id="创建新项目"><a href="#创建新项目" class="headerlink" title="创建新项目"></a>创建新项目</h1><p>入门非常简单。要创建新项目，请从命令行运行以下命令：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdocs new my-project<br><span class="hljs-built_in">cd</span> my-project<br></code></pre></td></tr></table></figure>
+
+<p>请花一点时间来检查一下为您创建的初始项目。</p>
+<p><img src="https://www.mkdocs.org/img/initial-layout.png" alt="layout"></p>
+<h2 id="初始-MkDocs-布局"><a href="#初始-MkDocs-布局" class="headerlink" title="初始 MkDocs 布局"></a>初始 MkDocs 布局</h2><p>有一个名为 的配置文件mkdocs.yml，以及一个名为 的文件夹 docs，其中包含您的文档源文件（是docs_dirdocs配置设置的默认值）。目前，该 文件夹仅包含一个名为 的文档页面。docsindex.md</p>
+<p>MkDocs 带有内置开发服务器，可让您在处理文档时预览文档。确保您与mkdocs.yml 配置文件位于同一目录中，然后通过运行以下命令启动服务器mkdocs serve ：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ mkdocs serve<br>INFO    -  Building documentation...<br>INFO    -  Cleaning site directory<br>INFO    -  Documentation built <span class="hljs-keyword">in</span> 0.22 seconds<br>INFO    -  [15:50:43] Watching paths <span class="hljs-keyword">for</span> changes: <span class="hljs-string">&#x27;docs&#x27;</span>, <span class="hljs-string">&#x27;mkdocs.yml&#x27;</span><br>INFO    -  [15:50:43] Serving on http://127.0.0.1:8000/<br></code></pre></td></tr></table></figure>
+
+<p>在浏览器中打开<a target="_blank" rel="noopener" href="http://127.0.0.1:8000/%EF%BC%8C%E6%82%A8%E5%B0%86%E7%9C%8B%E5%88%B0%E6%98%BE%E7%A4%BA%E7%9A%84%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A1%B5%EF%BC%9A">http://127.0.0.1:8000/，您将看到显示的默认主页：</a></p>
+<p><img src="https://www.mkdocs.org/img/screenshot.png" alt="screenshot"></p>
+<h2 id="MkDocs-实时服务器"><a href="#MkDocs-实时服务器" class="headerlink" title="MkDocs 实时服务器"></a>MkDocs 实时服务器</h2><p>开发服务器还支持自动重新加载，并且只要配置文件、文档目录或主题目录中的任何内容发生变化，就会重建您的文档。</p>
+<p>在您选择的文本编辑器中打开docs/index.md文档，将初始标题更改为MkLorum，然后保存更改。您的浏览器将自动重新加载，您应该立即看到更新后的文档。</p>
+<p>现在尝试编辑配置文件：mkdocs.yml。将设置更改 site_name为MkLorum并保存文件。</p>
+<figure class="hljs highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">site_name:</span> <span class="hljs-string">MkLorum</span><br></code></pre></td></tr></table></figure>
+
+<p>您的浏览器应立即重新加载，并且您将看到新的网站名称生效。</p>
+<figure class="hljs highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">site_name</span> <span class="hljs-string">设置</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://www.mkdocs.org/img/site-name.png" alt="site-name"></p>
+<p>注意：配置选项site_name是配置文件中唯一必需的选项。</p>
+<h2 id="添加页面"><a href="#添加页面" class="headerlink" title="添加页面"></a>添加页面</h2><p>现在向您的文档添加第二页：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl <span class="hljs-string">&#x27;https://jaspervdj.be/lorem-markdownum/markdown.txt&#x27;</span> &gt; docs/about.md<br></code></pre></td></tr></table></figure>
+
+<p>由于我们的文档站点将包含一些导航标题，您可能需要编辑配置文件并通过添加设置来添加有关导航标题中每个页面的顺序、标题和嵌套的一些信息nav ：</p>
+<figure class="hljs highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">site_name:</span> <span class="hljs-string">MkLorum</span><br><span class="hljs-attr">nav:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">Home:</span> <span class="hljs-string">index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">About:</span> <span class="hljs-string">about.md</span><br></code></pre></td></tr></table></figure>
+
+<p>保存更改，您将看到一个导航栏， 左侧有Home和项目，右侧有、和项目。AboutSearchPreviousNext</p>
+<p><img src="https://www.mkdocs.org/img/multipage.png" alt="multipage"></p>
+<p>尝试菜单项并在页面之间来回导航。然后点击 Search。将出现一个搜索对话框，允许您搜索任何页面上的任何文本。请注意，搜索结果包括网站上搜索词的每次出现，并直接链接到搜索词出现的页面部分。您无需付出任何努力或进行任何配置即可获得所有这些！</p>
+<p><img src="https://www.mkdocs.org/img/search.png" alt="search"></p>
+<h2 id="主题化我们的文档"><a href="#主题化我们的文档" class="headerlink" title="主题化我们的文档"></a>主题化我们的文档</h2><p>现在通过更改主题来更改配置文件以改变文档的显示方式。编辑mkdocs.yml文件并添加theme设置：</p>
+<figure class="hljs highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">site_name:</span> <span class="hljs-string">MkLorum</span><br><span class="hljs-attr">nav:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">Home:</span> <span class="hljs-string">index.md</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">About:</span> <span class="hljs-string">about.md</span><br><span class="hljs-attr">theme:</span> <span class="hljs-string">readthedocs</span><br></code></pre></td></tr></table></figure>
+
+<p>保存您的更改，您将看到正在使用的 ReadTheDocs 主题。</p>
+<p><img src="https://www.mkdocs.org/img/readthedocs.png" alt="readthedocs"></p>
+<h3 id="更多推荐的主题"><a href="#更多推荐的主题" class="headerlink" title="更多推荐的主题"></a>更多推荐的主题</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material</a></li>
+</ul>
+<h2 id="更改网站图标"><a href="#更改网站图标" class="headerlink" title="更改网站图标"></a>更改网站图标</h2><p>默认情况下，MkDocs 使用MkDocs 网站图标。要使用其他图标，请在目录img中创建一个子目录docs并将您的自定义文件复制favicon.ico 到该目录。MkDocs 将自动检测并使用该文件作为您的网站图标。</p>
+<h2 id="建立网站"><a href="#建立网站" class="headerlink" title="建立网站"></a>建立网站</h2><p>看起来不错。您已准备好部署文档的第一遍MkLorum 。首先构建文档：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdocs build<br></code></pre></td></tr></table></figure>
+
+<p>这将创建一个名为 的新目录site。查看目录内部：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ls site<br>about  fonts  index.html  license  search.html<br>css    img    js          mkdocs   sitemap.xml<br></code></pre></td></tr></table></figure>
+
+<p>请注意，您的源文档已输出为两个 HTML 文件，分别名为 index.html和about/index.html。您还有各种其他媒体已复制到site目录中作为文档主题的一部分。您甚至有一个sitemap.xml文件和mkdocs/search_index.json。</p>
+<p>如果您使用源代码控制，例如git您可能不想将您的文档构建检查到存储库中。 site/在您的.gitignore文件中添加一行。</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;site/&quot;</span> &gt;&gt; .gitignore<br></code></pre></td></tr></table></figure>
+
+<p>如果您正在使用其他源代码控制工具，您将需要检查其文档以了解如何忽略特定目录。</p>
+<h2 id="其他命令和选项"><a href="#其他命令和选项" class="headerlink" title="其他命令和选项"></a>其他命令和选项</h2><p>还有各种其他命令和选项可用。要获取完整的命令列表，请使用以下–help标志：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdocs --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
+
+<p>要查看给定命令的可用选项列表，请将–help标志与该命令一起使用。例如，要获取该命令可用的所有选项的列表， build请运行以下命令：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mkdocs build --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1><p>您刚刚构建的文档站点仅使用静态文件，因此您几乎可以从任何地方托管它。只需将整个site目录的内容上传到您托管网站的任何位置即可。有关一些常见主机的具体说明，请参阅 部署文档页面。</p>
+<h1 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h1><p>请参阅 <a target="_blank" rel="noopener" href="https://www.mkdocs.org/user-guide/">用户指南</a> 以获取有关 MkDocs 所有功能的更完整文档。</p>
+<p>要获得有关 MkDocs 的帮助，请使用 <a target="_blank" rel="noopener" href="https://github.com/mkdocs/mkdocs/discussions">GitHub Discussions</a> 或 <a target="_blank" rel="noopener" href="https://github.com/mkdocs/mkdocs/issues">GitHub Issues</a>。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/Blog/tags/Markdown/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Markdown</a>
+        
+        <a class="post-tag button" href="/Blog/tags/%E9%9D%99%E6%80%81%E7%AB%99%E7%82%B9%E7%94%9F%E6%88%90%E5%99%A8/" style="background: #a3bb54;" rel="tag"><i class="fas fa-tags"></i>静态站点生成器</a>
+        
+        <a class="post-tag button" href="/Blog/tags/MkDocs/" style="background: #47aaff;" rel="tag"><i class="fas fa-tags"></i>MkDocs</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打賞</button>
+  <div id="qr" class="qr" style="display: none;">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/Blog/2025/03/20/%E4%BD%BF%E7%94%A8Hexo%E5%8F%91%E5%B8%83Markdown%E6%96%87%E6%A1%A3/" rel="next" title="使用Hexo发布Markdown文档"><i class="fas fa-angle-left"></i><span class="nav-title">使用Hexo发布Markdown文档</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/Blog/2025/03/23/Kubernetes%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%88%98(V1.23.3)/" rel="prev" title="Kubernetes集群部署实战(基于v1.23.3版本)"><span class="nav-title">Kubernetes集群部署实战(基于v1.23.3版本)</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </div>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/Blog/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/Blog/images/avatar.png" alt="ACANX">
+  
+  <h1 class="author-name">ACANX</h1>
+  <h2 class="author-description"> 面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">歸檔</div>
+      <div><a href="/Blog/archives/">31</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分類</div>
+      <div><a href="/Blog/categories/">8</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">標籤</div>
+      <div><a href="/Blog/tags/">41</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/Blog/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目錄</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E9%A1%B9%E7%9B%AE"><span class="toc-text">创建新项目</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%88%9D%E5%A7%8B-MkDocs-%E5%B8%83%E5%B1%80"><span class="toc-text">初始 MkDocs 布局</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#MkDocs-%E5%AE%9E%E6%97%B6%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">MkDocs 实时服务器</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%B7%BB%E5%8A%A0%E9%A1%B5%E9%9D%A2"><span class="toc-text">添加页面</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E4%B8%BB%E9%A2%98%E5%8C%96%E6%88%91%E4%BB%AC%E7%9A%84%E6%96%87%E6%A1%A3"><span class="toc-text">主题化我们的文档</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%9B%B4%E5%A4%9A%E6%8E%A8%E8%8D%90%E7%9A%84%E4%B8%BB%E9%A2%98"><span class="toc-text">更多推荐的主题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%9B%B4%E6%94%B9%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87"><span class="toc-text">更改网站图标</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%BB%BA%E7%AB%8B%E7%BD%91%E7%AB%99"><span class="toc-text">建立网站</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4%E5%92%8C%E9%80%89%E9%A1%B9"><span class="toc-text">其他命令和选项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-text">部署</span></a></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E8%8E%B7%E5%8F%96%E5%B8%AE%E5%8A%A9"><span class="toc-text">获取帮助</span></a></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交鏈接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="245818784@qq.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://acxnx.github.com/" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/acanx" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情鏈接</div>
+  <ul>
+    
+    <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">ACANX</span><span class="year"><i class="far fa-copyright"></i>2025</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.gitee.com/" target="_blank">Gitee Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 強力驅動 | 主題 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
