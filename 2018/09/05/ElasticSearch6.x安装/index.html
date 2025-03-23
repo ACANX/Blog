@@ -10,8 +10,7 @@
     
     
     
-    
-    <meta name="keywords" content="ACANX, 面朝大海, Java">
+    <meta name="keywords" content="Life, ARIA, Hexo">
     
     
     <link rel="apple-touch-icon" sizes="180x180" href="/Blog/favicons/apple-touch-icon.png">
@@ -35,7 +34,7 @@
     <meta name="msapplication-config" content="/Blog/favicons/browserconfig.xml">
     
     
-    <link rel="alternate" href="/Blog/atom.xml" title="面朝大海" type="application/atom+xml" />
+    <link rel="alternate" href="/Blog/atom.xml" title="ACANX" type="application/atom+xml" />
     
     
     <link rel="shortcut icon" type="image/x-icon" href="/Blog/favicons/favicon.ico">
@@ -55,7 +54,6 @@
     <link rel="stylesheet" type="text/css" href="/Blog/css/lightgallery.min.css">
     <script type="text/javascript" src="/Blog/js/jquery.min.js"></script>
     <script defer type="text/javascript" src="/Blog/js/util.js"></script>
-    <script defer type="text/javascript" src="/Blog/js/clipboard.min.js"></script>
     <script defer type="text/javascript" src="/Blog/js/scrollspy.js"></script>
     <script defer type="text/javascript" src="/Blog/js/fontawesome-all.min.js"></script>
     <script defer type="text/javascript" src="/Blog/js/lightgallery.min.js"></script>
@@ -82,82 +80,9 @@
     
     
     <script defer type="text/javascript" src="/Blog/js/index.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function () {
-      var cb = null;
-      var els = $(".post figure.highlight");
-      if (els.length) {
-        // Enabled Hexo highlight line number.
-        $(els).each(function (i, e) {
-          // $(e).before("<button class=\"copy button\">Copy</button>");
-          $(e).before([
-            "<div class=\"code-titlebar\">",
-              "<div class=\"titlebar-left\">",
-                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
-              "</div>",
-              "<div class=\"titlebar-center\">",
-                "code",
-              "</div>",
-              "<div class=\"titlebar-right\">",
-                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
-              "</div>",
-            "</div>"
-          ].join(""));
-        });
-        cb = new ClipboardJS("button.copy", {
-          "target": function (trigger) {
-              // Get target element by DOM API.
-              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
-          }
-        });
-      } else {
-        // Disabled Hexo highlight line number.
-        els = $(".post pre code");
-        $(els).each(function (i, e) {
-          // Add button before pre, not code.
-          // $(e).parent().before("<button class=\"copy button\">Copy</button>");
-          $(e).before([
-            "<div class=\"code-titlebar\">",
-              "<div class=\"titlebar-left\">",
-                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
-              "</div>",
-              "<div class=\"titlebar-center\">",
-                "code",
-              "</div>",
-              "<div class=\"titlebar-right\">",
-                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
-              "</div>",
-            "</div>"
-          ].join(""));
-        });
-        cb = new ClipboardJS("button.copy", {
-          "target": function (trigger) {
-              // Get target element by DOM API.
-              return trigger.parentNode.parentNode.nextElementSibling;
-          }
-        });
-      }
-      cb.on("success", function (e) {
-        e.clearSelection();
-        var trigger = e.trigger;
-        // Change button text as a user tip.
-        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
-        $(trigger).addClass("copied");
-        // Change button text back;
-        setTimeout(function () {
-          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
-          $(trigger).removeClass("copied");
-        }, 1500);
-      });
-    });
-    </script>
     
     <script defer type="text/javascript" src="/Blog/js/custom.js"></script>
-    <title>ElasticSearch6.x及Elasticsearch-Head插件的安装 | 面朝大海 - ACANX</title>
+    <title>ElasticSearch6.x及Elasticsearch-Head插件的安装 | ACANX - 博客</title>
   <meta name="generator" content="Hexo 5.4.0"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
     
@@ -165,31 +90,32 @@
   <div class="container">
     <div class="header-container">
       <div class="header-title">
-        <h1 class="title"><a href="/Blog/">面朝大海</a></h1>
-        <h2 class="subtitle">ACANX</h2>
+        <h1 class="title"><a href="/Blog/">ACANX</a></h1>
+        <h2 class="subtitle">博客</h2>
       </div>
-      
       <div class="logo">
-        <img src="/Blog/images/logo.png" alt="logo">
+        <img src="/Blog/images/ARIA_logo.png" alt="logo">
       </div>
-      
     </div>
-    <nav id="nav" class="nav">
-      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
-      <ul id="menu" role="menubar" aria-hidden="false">
-        
-        <li role="menuitem"><a href="/Blog/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
-        
-      </ul>
-    </nav>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/Blog/">首頁</a></li>
+    
+    <li><a href="/Blog/archives/">歸檔</a></li>
+    
+    <li><a href="/Blog/categories/">分類</a></li>
+    
+    <li><a href="/Blog/tags/">標籤</a></li>
+    
+    <li><a href="/Blog/about/">關於</a></li>
+    
+  </ul>
+</nav>
+
+
   </div>
 </header>
 
@@ -199,9 +125,9 @@
         <div class="main-container">
           <div class="content">
             
-<div id="post" class="page">
+<div id="post" class="post">
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="https://acanx.gitee.io/Blog/2018/09/05/ElasticSearch6.x%E5%AE%89%E8%A3%85/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -210,7 +136,7 @@
        <meta itemprop="image" content="/Blog/images/avatar.png">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="面朝大海">
+       <meta itemprop="name" content="ACANX">
       </span>
     </div>
     <header class="post-header">
@@ -270,7 +196,7 @@
 <li>设置全局安装(-g代表全局安装,安装在D:\ProgramFiles\NodeJs\node_modules\目录下)：<figure class="hljs highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">npm install -g grunt-cli<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="3-2下载elasticsearch-head插件的源码"><a href="#3-2下载elasticsearch-head插件的源码" class="headerlink" title="3.2下载elasticsearch-head插件的源码"></a>3.2下载elasticsearch-head插件的源码</h3><p>源码地址：<a target="_blank" rel="noopener" href="https://github.com/mobz/elasticsearch-head.git">https://github.com/mobz/elasticsearch-head.git</a></p>
-<h4 id="2-2-1使用git-clone命令下载下来："><a href="#2-2-1使用git-clone命令下载下来：" class="headerlink" title="2.2.1使用git clone命令下载下来："></a>2.2.1使用git clone命令下载下来：</h4><figure class="hljs highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone git:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/mobz/</span>elasticsearch-head.git<br></code></pre></td></tr></table></figure>
+<h4 id="2-2-1使用git-clone命令下载下来："><a href="#2-2-1使用git-clone命令下载下来：" class="headerlink" title="2.2.1使用git clone命令下载下来："></a>2.2.1使用git clone命令下载下来：</h4><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">git clone git:&#x2F;&#x2F;github.com&#x2F;mobz&#x2F;elasticsearch-head.git<br></code></pre></td></tr></table></figure>
 <p>效果如图：<br><img src="/Blog/static/image/20180905/git-clone.png" alt="9200-default"></p>
 <h3 id="3-3配置elasticsearch-head"><a href="#3-3配置elasticsearch-head" class="headerlink" title="3.3配置elasticsearch-head"></a>3.3配置elasticsearch-head</h3><p>由于head的代码还是旧版本的，直接执行有很多限制，比如无法跨机器访问。因此需要修改几个地方：</p>
 <h4 id="3-3-1修改elasticsearch-head源码配置-Gruntfile-js"><a href="#3-3-1修改elasticsearch-head源码配置-Gruntfile-js" class="headerlink" title="3.3.1修改elasticsearch-head源码配置-Gruntfile.js"></a>3.3.1修改elasticsearch-head源码配置-Gruntfile.js</h4><p>①目录：elasticsearch-head/Gruntfile.js，增加hostname属性，设置为*：</p>
@@ -291,12 +217,12 @@
 
 
 <h3 id="3-6再运行elasticsearch-head"><a href="#3-6再运行elasticsearch-head" class="headerlink" title="3.6再运行elasticsearch-head"></a>3.6再运行elasticsearch-head</h3><p> 在elasticsearch-head源码目录下，执行npm install 下载的包：</p>
-<figure class="hljs highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">npm install<br></code></pre></td></tr></table></figure>
 <p>效果如图：<br><img src="/Blog/static/image/20180905/npm-install.png" alt="9200-default"></p>
 <ul>
 <li>初次运行安装可能会报警告或错误。可以重新运行一次npm install。最后，在head源代码目录下启动Nodejs：</li>
 </ul>
-<figure class="hljs highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta">grunt <span class="hljs-keyword">server</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">grunt server<br></code></pre></td></tr></table></figure>
 
 <p>效果如图：<br><img src="/Blog/static/image/20180905/grunt-server.png" alt="9200-default"></p>
 <p>访问:<a target="_blank" rel="noopener" href="http://localhost:9100/">http://localhost:9100</a><br>这个时候，访问<a href="http://localhost:9100就可以使用elasticsearch-head插件查看ES中的数据了了：">http://localhost:9100就可以使用elasticsearch-head插件查看ES中的数据了了：</a><br><img src="/Blog/static/image/20180905/9100-port.png" alt="9200-default"></p>
@@ -310,13 +236,17 @@
     </main>
     <footer class="post-footer">
       
+      
       <div class="post-tags">
         
-        <a class="post-tag button" href="/Blog/tags/Java/" rel="tag"><i class="fas fa-tags"></i>Java</a>
         
-        <a class="post-tag button" href="/Blog/tags/ElasticSearch/" rel="tag"><i class="fas fa-tags"></i>ElasticSearch</a>
         
-        <a class="post-tag button" href="/Blog/tags/Elasticsearch-Head/" rel="tag"><i class="fas fa-tags"></i>Elasticsearch-Head</a>
+        
+        <a class="post-tag button" href="/Blog/tags/Java/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Java</a>
+        
+        <a class="post-tag button" href="/Blog/tags/ElasticSearch/" style="background: #a3bb54;" rel="tag"><i class="fas fa-tags"></i>ElasticSearch</a>
+        
+        <a class="post-tag button" href="/Blog/tags/Elasticsearch-Head/" style="background: #47aaff;" rel="tag"><i class="fas fa-tags"></i>Elasticsearch-Head</a>
         
       </div>
       
@@ -324,18 +254,31 @@
   </article>
   
   
-  <nav class="page-nav">
-    <div class="page-nav-next page-nav-item">
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打賞</button>
+  <div id="qr" class="qr" style="display: none;">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
       
       <a href="/Blog/2018/07/07/Win10%E5%AE%89%E8%A3%85JDK10/" rel="next" title="Win10安装JDK10"><i class="fas fa-angle-left"></i><span class="nav-title">Win10安装JDK10</span></a>
       
     </div>
-    <div class="page-nav-prev page-nav-item">
+    <div class="post-nav-prev post-nav-item">
       
       <a href="/Blog/2018/09/06/MD%E4%BB%A3%E7%A0%81%E6%A0%B7%E5%BC%8F/" rel="prev" title="Markdown文档渲染出的代码样式"><span class="nav-title">Markdown文档渲染出的代码样式</span><i class="fas fa-angle-right"></i></a>
       
     </div>
-  </nav>
+  </div>
   
   
 </div>
@@ -344,11 +287,11 @@
           
           
           
-<aside class="sidebar" id="sidebar" style="background: url(/Blog/images/background.png);">
+<aside class="sidebar" id="sidebar" style="background: url(/Blog/images/sidebar_background.png);">
   
   <div class="search">
     <div class="form-group">
-      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
     </div>
   </div>
   <div class="search-result-box" id="search-result"></div>
@@ -359,18 +302,31 @@
   <img class="author-avatar" src="/Blog/images/avatar.png" alt="ACANX">
   
   <h1 class="author-name">ACANX</h1>
-  <h2 class="author-description">面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a></h2>
+  <h2 class="author-description"> 面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a></h2>
   <div class="site-count">
     
+    <div class="archives-count">
+      <div class="site-count-title">歸檔</div>
+      <div><a href="/Blog/archives/">31</a></div>
+    </div>
     
     
     
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分類</div>
+      <div><a href="/Blog/categories/">8</a></div>
+    </div>
     
     
     
+    <span class="site-count-divider divider">|</span>
     
-    
-    
+    <div class="tags-count">
+      <div class="site-count-title">標籤</div>
+      <div><a href="/Blog/tags/">41</a></div>
+    </div>
     
   </div>
   
@@ -384,49 +340,54 @@
   <div class="sidebar-sticky">
     
     
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目錄</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#ElasticSearch6-x%E5%8F%8Aelasticsearch-head%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">ElasticSearch6.x及elasticsearch-head插件的安装</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83"><span class="toc-text">安装环境</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E7%9B%B8%E5%85%B3%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6%EF%BC%9A"><span class="toc-text">1.下载相关必备软件：</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#2%E5%AE%89%E8%A3%85ElasticSearch"><span class="toc-text">2安装ElasticSearch</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-1%E5%AE%89%E8%A3%85"><span class="toc-text">2.1安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-2%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E5%90%AF%E5%8A%A8"><span class="toc-text">2.2命令行下启动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#3-elasticsearch-head%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-text">3.elasticsearch-head插件安装</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-1%E5%AE%89%E8%A3%85grunt"><span class="toc-text">3.1安装grunt</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-2%E4%B8%8B%E8%BD%BDelasticsearch-head%E6%8F%92%E4%BB%B6%E7%9A%84%E6%BA%90%E7%A0%81"><span class="toc-text">3.2下载elasticsearch-head插件的源码</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#2-2-1%E4%BD%BF%E7%94%A8git-clone%E5%91%BD%E4%BB%A4%E4%B8%8B%E8%BD%BD%E4%B8%8B%E6%9D%A5%EF%BC%9A"><span class="toc-text">2.2.1使用git clone命令下载下来：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-3%E9%85%8D%E7%BD%AEelasticsearch-head"><span class="toc-text">3.3配置elasticsearch-head</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#3-3-1%E4%BF%AE%E6%94%B9elasticsearch-head%E6%BA%90%E7%A0%81%E9%85%8D%E7%BD%AE-Gruntfile-js"><span class="toc-text">3.3.1修改elasticsearch-head源码配置-Gruntfile.js</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#3-3-2%E4%BF%AE%E6%94%B9elasticsearch-head%E6%BA%90%E7%A0%81%E9%85%8D%E7%BD%AE-app-js"><span class="toc-text">3.3.2修改elasticsearch-head源码配置-app.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-4%E6%B7%BB%E5%8A%A0Elasticsearch%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="toc-text">3.4添加Elasticsearch的配置参数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-5%E5%90%AF%E5%8A%A8ElasticSearch"><span class="toc-text">3.5启动ElasticSearch</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-6%E5%86%8D%E8%BF%90%E8%A1%8Celasticsearch-head"><span class="toc-text">3.6再运行elasticsearch-head</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol></li></ol></div>
+</div>
+
+
+
     
     
     
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#ElasticSearch6-x%E5%8F%8Aelasticsearch-head%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">ElasticSearch6.x及elasticsearch-head插件的安装</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83"><span class="toc-text">安装环境</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E7%9B%B8%E5%85%B3%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6%EF%BC%9A"><span class="toc-text">1.下载相关必备软件：</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#2%E5%AE%89%E8%A3%85ElasticSearch"><span class="toc-text">2安装ElasticSearch</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-1%E5%AE%89%E8%A3%85"><span class="toc-text">2.1安装</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-2%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E5%90%AF%E5%8A%A8"><span class="toc-text">2.2命令行下启动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#3-elasticsearch-head%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-text">3.elasticsearch-head插件安装</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-1%E5%AE%89%E8%A3%85grunt"><span class="toc-text">3.1安装grunt</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-2%E4%B8%8B%E8%BD%BDelasticsearch-head%E6%8F%92%E4%BB%B6%E7%9A%84%E6%BA%90%E7%A0%81"><span class="toc-text">3.2下载elasticsearch-head插件的源码</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#2-2-1%E4%BD%BF%E7%94%A8git-clone%E5%91%BD%E4%BB%A4%E4%B8%8B%E8%BD%BD%E4%B8%8B%E6%9D%A5%EF%BC%9A"><span class="toc-text">2.2.1使用git clone命令下载下来：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-3%E9%85%8D%E7%BD%AEelasticsearch-head"><span class="toc-text">3.3配置elasticsearch-head</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#3-3-1%E4%BF%AE%E6%94%B9elasticsearch-head%E6%BA%90%E7%A0%81%E9%85%8D%E7%BD%AE-Gruntfile-js"><span class="toc-text">3.3.1修改elasticsearch-head源码配置-Gruntfile.js</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#3-3-2%E4%BF%AE%E6%94%B9elasticsearch-head%E6%BA%90%E7%A0%81%E9%85%8D%E7%BD%AE-app-js"><span class="toc-text">3.3.2修改elasticsearch-head源码配置-app.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-4%E6%B7%BB%E5%8A%A0Elasticsearch%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="toc-text">3.4添加Elasticsearch的配置参数</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-5%E5%90%AF%E5%8A%A8ElasticSearch"><span class="toc-text">3.5启动ElasticSearch</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-6%E5%86%8D%E8%BF%90%E8%A1%8Celasticsearch-head"><span class="toc-text">3.6再运行elasticsearch-head</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol></li></ol></div>
-    </div>
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交鏈接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="245818784@qq.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://acxnx.github.com/" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/acanx" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
     
     
     
-    <hr>
-    <div class="social-link sidebar-item">
-      <div><i class="far fa-address-card"></i>Social Links</p></div>
-      <ul>
-        
-        <li><i class="fas fa-envelope"></i><a href="mailto:acanx@qq.com" target="_blank">电子邮箱</a></li>
-        
-        <li><i class="fab fa-github"></i><a href="https://github.com/acxnx" target="_blank">GitHub</a></li>
-        
-        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/acanx" target="_blank">微博</a></li>
-        
-        <li><i class="fab fa-blog"></i><a href="https://blog.acanx.com/" target="_blank">个人博客</a></li>
-        
-        <li><i class="fab fa-blog"></i><a href="https://my.oschina.net/Adven" target="_blank">开源中国</a></li>
-        
-      </ul>
-    </div>
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情鏈接</div>
+  <ul>
     
+    <li><a href="https://github.com/" target="_blank">GitHub</a></li>
     
-    <hr>
-    <div class="blogroll sidebar-item">
-      <div><i class="fas fa-link"></i>Blogroll</div>
-      <ul>
-        
-        <li><i class="fas fa-link"></i><a href="https://github.com/acxnx" target="_blank">GitHub</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
-        
-      </ul>
-    </div>
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
     
   </div>
 </aside>
@@ -440,17 +401,20 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
     </div>
     <div class="footer-container">
       <div class="footer-left">
         <div class="copyright">
-          <span class="author">ACANX</span><span class="year"><i class="far fa-copyright"></i>2015 - 2024</span>
+          <span class="author">ACANX</span><span class="year"><i class="far fa-copyright"></i>2025</span>
         </div>
         
-        <div class="busuanzi">
-          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
-        </div>
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
         
       </div>
       <div class="footer-right">
@@ -460,7 +424,7 @@
           
         </div>
         <div class="powered-by">
-          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 強力驅動 | 主題 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
         </div>
       </div>
     </div>

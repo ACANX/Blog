@@ -10,8 +10,7 @@
     
     
     
-    
-    <meta name="keywords" content="ACANX, 面朝大海, Java">
+    <meta name="keywords" content="Life, ARIA, Hexo">
     
     
     <link rel="apple-touch-icon" sizes="180x180" href="/Blog/favicons/apple-touch-icon.png">
@@ -35,7 +34,7 @@
     <meta name="msapplication-config" content="/Blog/favicons/browserconfig.xml">
     
     
-    <link rel="alternate" href="/Blog/atom.xml" title="面朝大海" type="application/atom+xml" />
+    <link rel="alternate" href="/Blog/atom.xml" title="ACANX" type="application/atom+xml" />
     
     
     <link rel="shortcut icon" type="image/x-icon" href="/Blog/favicons/favicon.ico">
@@ -48,14 +47,13 @@
     
     
 <link rel="stylesheet" type="text/css" href="/Blog/css/page.css">
-<link rel="stylesheet" type="text/css" href="/Blog/css/post.css">
+<link rel="stylesheet" type="text/css" href="/Blog/css/tag.css">
 
     <link rel="stylesheet" type="text/css" href="/Blog/css/custom.css">
     <link rel="stylesheet" type="text/css" href="/Blog/css/atom-one-dark.css">
     <link rel="stylesheet" type="text/css" href="/Blog/css/lightgallery.min.css">
     <script type="text/javascript" src="/Blog/js/jquery.min.js"></script>
     <script defer type="text/javascript" src="/Blog/js/util.js"></script>
-    <script defer type="text/javascript" src="/Blog/js/clipboard.min.js"></script>
     <script defer type="text/javascript" src="/Blog/js/scrollspy.js"></script>
     <script defer type="text/javascript" src="/Blog/js/fontawesome-all.min.js"></script>
     <script defer type="text/javascript" src="/Blog/js/lightgallery.min.js"></script>
@@ -82,82 +80,9 @@
     
     
     <script defer type="text/javascript" src="/Blog/js/index.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function () {
-      var cb = null;
-      var els = $(".post figure.highlight");
-      if (els.length) {
-        // Enabled Hexo highlight line number.
-        $(els).each(function (i, e) {
-          // $(e).before("<button class=\"copy button\">Copy</button>");
-          $(e).before([
-            "<div class=\"code-titlebar\">",
-              "<div class=\"titlebar-left\">",
-                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
-              "</div>",
-              "<div class=\"titlebar-center\">",
-                "code",
-              "</div>",
-              "<div class=\"titlebar-right\">",
-                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
-              "</div>",
-            "</div>"
-          ].join(""));
-        });
-        cb = new ClipboardJS("button.copy", {
-          "target": function (trigger) {
-              // Get target element by DOM API.
-              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
-          }
-        });
-      } else {
-        // Disabled Hexo highlight line number.
-        els = $(".post pre code");
-        $(els).each(function (i, e) {
-          // Add button before pre, not code.
-          // $(e).parent().before("<button class=\"copy button\">Copy</button>");
-          $(e).before([
-            "<div class=\"code-titlebar\">",
-              "<div class=\"titlebar-left\">",
-                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
-              "</div>",
-              "<div class=\"titlebar-center\">",
-                "code",
-              "</div>",
-              "<div class=\"titlebar-right\">",
-                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
-              "</div>",
-            "</div>"
-          ].join(""));
-        });
-        cb = new ClipboardJS("button.copy", {
-          "target": function (trigger) {
-              // Get target element by DOM API.
-              return trigger.parentNode.parentNode.nextElementSibling;
-          }
-        });
-      }
-      cb.on("success", function (e) {
-        e.clearSelection();
-        var trigger = e.trigger;
-        // Change button text as a user tip.
-        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
-        $(trigger).addClass("copied");
-        // Change button text back;
-        setTimeout(function () {
-          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
-          $(trigger).removeClass("copied");
-        }, 1500);
-      });
-    });
-    </script>
     
     <script defer type="text/javascript" src="/Blog/js/custom.js"></script>
-    <title>Tag: 哈哈 | 面朝大海 - ACANX</title>
+    <title>標籤: 哈哈 | ACANX - 博客</title>
   <meta name="generator" content="Hexo 5.4.0"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
     
@@ -165,31 +90,32 @@
   <div class="container">
     <div class="header-container">
       <div class="header-title">
-        <h1 class="title"><a href="/Blog/">面朝大海</a></h1>
-        <h2 class="subtitle">ACANX</h2>
+        <h1 class="title"><a href="/Blog/">ACANX</a></h1>
+        <h2 class="subtitle">博客</h2>
       </div>
-      
       <div class="logo">
-        <img src="/Blog/images/logo.png" alt="logo">
+        <img src="/Blog/images/ARIA_logo.png" alt="logo">
       </div>
-      
     </div>
-    <nav id="nav" class="nav">
-      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
-      <ul id="menu" role="menubar" aria-hidden="false">
-        
-        <li role="menuitem"><a href="/Blog/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
-        
-      </ul>
-    </nav>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/Blog/">首頁</a></li>
+    
+    <li><a href="/Blog/archives/">歸檔</a></li>
+    
+    <li><a href="/Blog/categories/">分類</a></li>
+    
+    <li><a href="/Blog/tags/">標籤</a></li>
+    
+    <li><a href="/Blog/about/">關於</a></li>
+    
+  </ul>
+</nav>
+
+
   </div>
 </header>
 
@@ -199,12 +125,12 @@
         <div class="main-container">
           <div class="content">
             
-<div id="tag" class="tag page">
-  <h1 class="page-title">哈哈</h1>
-  
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
+<div id="tag" class="tag">
+  <div class="tag-container">
+    <h1 class="tag-title">哈哈</h1>
+    
+    <article class="tag-post card" itemscope itemtype="http://schema.org/Article">
+      <h1 class="post-title" itemprop="name headline">
         <a class="post-title-link post-title-link-external" href="/Blog/2018/06/26/%E9%9D%A2%E6%9C%9D%E5%A4%A7%E6%B5%B7%EF%BC%8C%E6%98%A5%E6%9A%96%E8%8A%B1%E5%BC%80/" itemprop="url">面朝大海，春暖花开</a>
       </h1>
       
@@ -212,9 +138,9 @@
         <time title="post-date" itemprop="dateCreated datePublished" datetime="2018-06-26T14:41:57+08:00">06-26</time>
       </span>
       
-    </header>
-  </article>
-  
+    </article>
+    
+  </div>
   
 </div>
 
@@ -222,11 +148,11 @@
           
           
           
-<aside class="sidebar" id="sidebar" style="background: url(/Blog/images/background.png);">
+<aside class="sidebar" id="sidebar" style="background: url(/Blog/images/sidebar_background.png);">
   
   <div class="search">
     <div class="form-group">
-      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
     </div>
   </div>
   <div class="search-result-box" id="search-result"></div>
@@ -237,18 +163,31 @@
   <img class="author-avatar" src="/Blog/images/avatar.png" alt="ACANX">
   
   <h1 class="author-name">ACANX</h1>
-  <h2 class="author-description">面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a></h2>
+  <h2 class="author-description"> 面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a></h2>
   <div class="site-count">
     
+    <div class="archives-count">
+      <div class="site-count-title">歸檔</div>
+      <div><a href="/Blog/archives/">31</a></div>
+    </div>
     
     
     
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分類</div>
+      <div><a href="/Blog/categories/">8</a></div>
+    </div>
     
     
     
+    <span class="site-count-divider divider">|</span>
     
-    
-    
+    <div class="tags-count">
+      <div class="site-count-title">標籤</div>
+      <div><a href="/Blog/tags/">41</a></div>
+    </div>
     
   </div>
   
@@ -262,38 +201,40 @@
   <div class="sidebar-sticky">
     
     
-    <hr>
-    <div class="social-link sidebar-item">
-      <div><i class="far fa-address-card"></i>Social Links</p></div>
-      <ul>
-        
-        <li><i class="fas fa-envelope"></i><a href="mailto:acanx@qq.com" target="_blank">电子邮箱</a></li>
-        
-        <li><i class="fab fa-github"></i><a href="https://github.com/acxnx" target="_blank">GitHub</a></li>
-        
-        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/acanx" target="_blank">微博</a></li>
-        
-        <li><i class="fab fa-blog"></i><a href="https://blog.acanx.com/" target="_blank">个人博客</a></li>
-        
-        <li><i class="fab fa-blog"></i><a href="https://my.oschina.net/Adven" target="_blank">开源中国</a></li>
-        
-      </ul>
-    </div>
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交鏈接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="245818784@qq.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://acxnx.github.com/" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/acanx" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
     
     
-    <hr>
-    <div class="blogroll sidebar-item">
-      <div><i class="fas fa-link"></i>Blogroll</div>
-      <ul>
-        
-        <li><i class="fas fa-link"></i><a href="https://github.com/acxnx" target="_blank">GitHub</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
-        
-      </ul>
-    </div>
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情鏈接</div>
+  <ul>
+    
+    <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+    
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
     
   </div>
 </aside>
@@ -307,17 +248,20 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
     </div>
     <div class="footer-container">
       <div class="footer-left">
         <div class="copyright">
-          <span class="author">ACANX</span><span class="year"><i class="far fa-copyright"></i>2015 - 2024</span>
+          <span class="author">ACANX</span><span class="year"><i class="far fa-copyright"></i>2025</span>
         </div>
         
-        <div class="busuanzi">
-          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
-        </div>
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
         
       </div>
       <div class="footer-right">
@@ -327,7 +271,7 @@
           
         </div>
         <div class="powered-by">
-          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 強力驅動 | 主題 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
         </div>
       </div>
     </div>

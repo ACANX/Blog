@@ -10,8 +10,7 @@
     
     
     
-    
-    <meta name="keywords" content="ACANX, 面朝大海, Java">
+    <meta name="keywords" content="Life, ARIA, Hexo">
     
     
     <link rel="apple-touch-icon" sizes="180x180" href="/Blog/favicons/apple-touch-icon.png">
@@ -35,7 +34,7 @@
     <meta name="msapplication-config" content="/Blog/favicons/browserconfig.xml">
     
     
-    <link rel="alternate" href="/Blog/atom.xml" title="面朝大海" type="application/atom+xml" />
+    <link rel="alternate" href="/Blog/atom.xml" title="ACANX" type="application/atom+xml" />
     
     
     <link rel="shortcut icon" type="image/x-icon" href="/Blog/favicons/favicon.ico">
@@ -55,7 +54,6 @@
     <link rel="stylesheet" type="text/css" href="/Blog/css/lightgallery.min.css">
     <script type="text/javascript" src="/Blog/js/jquery.min.js"></script>
     <script defer type="text/javascript" src="/Blog/js/util.js"></script>
-    <script defer type="text/javascript" src="/Blog/js/clipboard.min.js"></script>
     <script defer type="text/javascript" src="/Blog/js/scrollspy.js"></script>
     <script defer type="text/javascript" src="/Blog/js/fontawesome-all.min.js"></script>
     <script defer type="text/javascript" src="/Blog/js/lightgallery.min.js"></script>
@@ -82,82 +80,9 @@
     
     
     <script defer type="text/javascript" src="/Blog/js/index.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function () {
-      var cb = null;
-      var els = $(".post figure.highlight");
-      if (els.length) {
-        // Enabled Hexo highlight line number.
-        $(els).each(function (i, e) {
-          // $(e).before("<button class=\"copy button\">Copy</button>");
-          $(e).before([
-            "<div class=\"code-titlebar\">",
-              "<div class=\"titlebar-left\">",
-                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
-              "</div>",
-              "<div class=\"titlebar-center\">",
-                "code",
-              "</div>",
-              "<div class=\"titlebar-right\">",
-                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
-              "</div>",
-            "</div>"
-          ].join(""));
-        });
-        cb = new ClipboardJS("button.copy", {
-          "target": function (trigger) {
-              // Get target element by DOM API.
-              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
-          }
-        });
-      } else {
-        // Disabled Hexo highlight line number.
-        els = $(".post pre code");
-        $(els).each(function (i, e) {
-          // Add button before pre, not code.
-          // $(e).parent().before("<button class=\"copy button\">Copy</button>");
-          $(e).before([
-            "<div class=\"code-titlebar\">",
-              "<div class=\"titlebar-left\">",
-                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
-              "</div>",
-              "<div class=\"titlebar-center\">",
-                "code",
-              "</div>",
-              "<div class=\"titlebar-right\">",
-                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
-                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
-              "</div>",
-            "</div>"
-          ].join(""));
-        });
-        cb = new ClipboardJS("button.copy", {
-          "target": function (trigger) {
-              // Get target element by DOM API.
-              return trigger.parentNode.parentNode.nextElementSibling;
-          }
-        });
-      }
-      cb.on("success", function (e) {
-        e.clearSelection();
-        var trigger = e.trigger;
-        // Change button text as a user tip.
-        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
-        $(trigger).addClass("copied");
-        // Change button text back;
-        setTimeout(function () {
-          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
-          $(trigger).removeClass("copied");
-        }, 1500);
-      });
-    });
-    </script>
     
     <script defer type="text/javascript" src="/Blog/js/custom.js"></script>
-    <title>树莓派安装MySQL8.0.25数据库 | 面朝大海 - ACANX</title>
+    <title>树莓派安装MySQL8.0.25数据库 | ACANX - 博客</title>
   <meta name="generator" content="Hexo 5.4.0"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
     
@@ -165,31 +90,32 @@
   <div class="container">
     <div class="header-container">
       <div class="header-title">
-        <h1 class="title"><a href="/Blog/">面朝大海</a></h1>
-        <h2 class="subtitle">ACANX</h2>
+        <h1 class="title"><a href="/Blog/">ACANX</a></h1>
+        <h2 class="subtitle">博客</h2>
       </div>
-      
       <div class="logo">
-        <img src="/Blog/images/logo.png" alt="logo">
+        <img src="/Blog/images/ARIA_logo.png" alt="logo">
       </div>
-      
     </div>
-    <nav id="nav" class="nav">
-      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
-      <ul id="menu" role="menubar" aria-hidden="false">
-        
-        <li role="menuitem"><a href="/Blog/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
-        
-        <li role="menuitem"><a href="/Blog/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
-        
-      </ul>
-    </nav>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/Blog/">首頁</a></li>
+    
+    <li><a href="/Blog/archives/">歸檔</a></li>
+    
+    <li><a href="/Blog/categories/">分類</a></li>
+    
+    <li><a href="/Blog/tags/">標籤</a></li>
+    
+    <li><a href="/Blog/about/">關於</a></li>
+    
+  </ul>
+</nav>
+
+
   </div>
 </header>
 
@@ -199,9 +125,9 @@
         <div class="main-container">
           <div class="content">
             
-<div id="post" class="page">
+<div id="post" class="post">
   
-  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+  <article class="post-container card" itemscope itemtype="http://schema.org/Article">
     <div class="post-block">
       <link itemprop="mainEntityOfPage" href="https://acanx.gitee.io/Blog/2021/07/27/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85MySQL8/">
       <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -210,7 +136,7 @@
        <meta itemprop="image" content="/Blog/images/avatar.png">
       </span>
       <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="面朝大海">
+       <meta itemprop="name" content="ACANX">
       </span>
     </div>
     <header class="post-header">
@@ -238,46 +164,46 @@
 <figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install mysql-server<br></code></pre></td></tr></table></figure>
 
 <p>#另外自己看下数据库配置是不是mysql_native_password方式，如果不是就在my.cnf文件中加上。</p>
-<figure class="hljs highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment">#skip-name-resolve   // 禁用DNS查询</span><br><br><span class="hljs-section">[mysqld]</span><br><span class="hljs-comment">#skip-grant-tables   // 允许免密登录（去掉前面的#，然后重启Mysql服务后生效）</span><br><span class="hljs-attr">default_authentication_plugin</span> = mysql_native_password<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">#skip-name-resolve   &#x2F;&#x2F; 禁用DNS查询<br><br>[mysqld]<br>#skip-grant-tables   &#x2F;&#x2F; 允许免密登录（去掉前面的#，然后重启Mysql服务后生效）<br>default_authentication_plugin &#x3D; mysql_native_password<br></code></pre></td></tr></table></figure>
 
 
 
 <h2 id="2-授权"><a href="#2-授权" class="headerlink" title="2 授权"></a>2 授权</h2><p> 免密登录(重置密码遇到ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using passwor:yes)问题)<br>文章转载自：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/gumuzi/p/5711495.html">https://www.cnblogs.com/gumuzi/p/5711495.html</a><br>一般这个错误是由密码错误引起，解决的办法自然就是重置密码。<br>假设我们使用的是root账户。<br>1.重置密码的第一步就是跳过MySQL的密码认证过程，方法如下：</p>
-<figure class="hljs highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">#vim <span class="hljs-regexp">/etc/my</span>.cnf           <span class="hljs-comment">// (注：windows下修改的是my.ini)</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">#vim &#x2F;etc&#x2F;my.cnf           &#x2F;&#x2F; (注：windows下修改的是my.ini)<br></code></pre></td></tr></table></figure>
 
 <p>在文档内搜索mysqld定位到[mysqld]文本段：<br>/mysqld(在vim编辑状态下直接输入该命令可搜索文本内容)<br>在[mysqld]后面任意一行添加“skip-grant-tables”用来跳过密码验证的过程，如下图所示：</p>
-<figure class="hljs highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">[mysqld]<br>skip-<span class="hljs-keyword">grant</span>-<span class="hljs-keyword">tables</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">[mysqld]<br>skip-grant-tables<br></code></pre></td></tr></table></figure>
 
 
 <p>保存文档并退出</p>
 <p>2.接下来我们需要重启MySQL：</p>
-<figure class="hljs highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/etc/i</span>nit.d<span class="hljs-regexp">/mysql restart(有些用户可能需要使用/</span>etc<span class="hljs-regexp">/init.d/my</span>sqld restart)<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">&#x2F;etc&#x2F;init.d&#x2F;mysql restart(有些用户可能需要使用&#x2F;etc&#x2F;init.d&#x2F;mysqld restart)<br></code></pre></td></tr></table></figure>
 
 <p>3.重启之后输入mysql即可进入mysql。 </p>
 <p>4.接下来就是用sql来修改root的密码<br>进入到终端当中，敲入 mysql -u root -p 命令然后回车，当需要输入密码时，直接按enter键，便可以不用密码登录到数据库当中</p>
-<figure class="hljs highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> ‘root’@’%’ IDENTIFIED <span class="hljs-keyword">WITH</span> mysql_native_password <span class="hljs-keyword">BY</span> ‘<span class="hljs-number">12345678</span>’;<br>mysql&gt; flush <span class="hljs-keyword">privileges</span>;<br>mysql&gt; quit<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">mysql&gt; ALTER USER ‘root’@’%’ IDENTIFIED WITH mysql_native_password BY ‘12345678’;<br>mysql&gt; flush privileges;<br>mysql&gt; quit<br></code></pre></td></tr></table></figure>
 
 <p>注意：如果在执行该步骤的时候出现ERROR 1290 (HY000): The MySQL server is running with the –skip-grant-tables option so it cannot execute this statement 错误。则执行下 flush privileges 命令，再执行该命令即可。<br>到这里root账户就已经重置成新的密码了。<br>5.编辑my.cnf,去掉刚才添加的内容，然后重启MySQL。大功告成！<br> 网上有很多关于这个问题的解决说明，很多刚接触的朋友可能比较迷惑的是在自己的平台上找不到my.cnf或者my.ini文件，如果你是Linux,使用如下方式可以搜索到：</p>
-<figure class="hljs highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">PRIVILEGES</span> <span class="hljs-keyword">ON</span> *.* <span class="hljs-keyword">TO</span> <span class="hljs-string">&#x27;acanx&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">GRANT ALL PRIVILEGES ON *.* TO &#39;acanx&#39;@&#39;%&#39; WITH GRANT OPTION;<br></code></pre></td></tr></table></figure>
 
 <h2 id="3-Ubuntu下配置Mysql允许远程连接"><a href="#3-Ubuntu下配置Mysql允许远程连接" class="headerlink" title="3.Ubuntu下配置Mysql允许远程连接"></a>3.Ubuntu下配置Mysql允许远程连接</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011120720/article/details/51096695?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control">Ubuntu下设置mysql允许远程连接</a></li>
 </ul>
 <p>默认情况下，mysql只允许本地连接，如果需要开启远程连接，则需要修改配置。</p>
 <p>首先打开配置文件进行修改</p>
-<figure class="hljs highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">cd <span class="hljs-regexp">/etc/my</span>sql<span class="hljs-regexp">/mysql.conf.d/</span><br>vim mysqld.cnf<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">cd &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;<br>vim mysqld.cnf<br></code></pre></td></tr></table></figure>
 
 <p>找到bind-address    =   127.0.0.1</p>
 <figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs //注释掉如下">#bind-address   &#x3D;   127.0.0.1<br></code></pre></td></tr></table></figure>
 
 <p>保存退出后，使用如下命令，输入密码后进入mysql</p>
-<figure class="hljs highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">mysql -u username  -<span class="hljs-selector-tag">p</span><br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">mysql -u username  -p<br></code></pre></td></tr></table></figure>
 
 <p>为需要远程登录的用户赋予权限</p>
-<figure class="hljs highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">mysql&gt; <span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">&#x27;root&#x27;</span>@<span class="hljs-string">&#x27;%&#x27;</span> IDENTIFIED <span class="hljs-keyword">WITH</span> mysql_native_password <span class="hljs-keyword">BY</span> <span class="hljs-string">&#x27;12345678&#x27;</span>;<br>mysql&gt; flush <span class="hljs-keyword">privileges</span>;    // 刷新使设置立即生效<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">mysql&gt; ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;12345678&#39;;<br>mysql&gt; flush privileges;    &#x2F;&#x2F; 刷新使设置立即生效<br></code></pre></td></tr></table></figure>
 
 <p>– 查看权限是否已授予</p>
-<figure class="hljs highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">mysql&gt; SELECT host,user,select_priv,insert_priv,delete_priv,update_priv,drop_priv FROM user;<br>mysql&gt;select user,host,authentication_string from mysql.user;<br>mysql-&gt;<span class="hljs-keyword">exit</span>;  <span class="hljs-regexp">//</span> 退出<br>sudo <span class="hljs-regexp">/etc/i</span>nit.d/mysql restart<br></code></pre></td></tr></table></figure>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">mysql&gt; SELECT host,user,select_priv,insert_priv,delete_priv,update_priv,drop_priv FROM user;<br>mysql&gt;select user,host,authentication_string from mysql.user;<br>mysql-&gt;exit;  &#x2F;&#x2F; 退出<br>sudo &#x2F;etc&#x2F;init.d&#x2F;mysql restart<br></code></pre></td></tr></table></figure>
 
 
 
@@ -289,11 +215,15 @@
     </main>
     <footer class="post-footer">
       
+      
       <div class="post-tags">
         
-        <a class="post-tag button" href="/Blog/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag"><i class="fas fa-tags"></i>树莓派</a>
         
-        <a class="post-tag button" href="/Blog/tags/MySQL8/" rel="tag"><i class="fas fa-tags"></i>MySQL8</a>
+        
+        
+        <a class="post-tag button" href="/Blog/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>树莓派</a>
+        
+        <a class="post-tag button" href="/Blog/tags/MySQL8/" style="background: #a3bb54;" rel="tag"><i class="fas fa-tags"></i>MySQL8</a>
         
       </div>
       
@@ -301,16 +231,31 @@
   </article>
   
   
-  <nav class="page-nav">
-    <div class="page-nav-next page-nav-item">
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打賞</button>
+  <div id="qr" class="qr" style="display: none;">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
       
       <a href="/Blog/2021/06/30/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="next" title="树莓派4B折腾记"><i class="fas fa-angle-left"></i><span class="nav-title">树莓派4B折腾记</span></a>
       
     </div>
-    <div class="page-nav-prev page-nav-item">
+    <div class="post-nav-prev post-nav-item">
+      
+      <a href="/Blog/2025/03/20/%E4%BD%BF%E7%94%A8Hexo%E5%8F%91%E5%B8%83Markdown%E6%96%87%E6%A1%A3/" rel="prev" title="使用Hexo发布Markdown文档"><span class="nav-title">使用Hexo发布Markdown文档</span><i class="fas fa-angle-right"></i></a>
       
     </div>
-  </nav>
+  </div>
   
   
 </div>
@@ -319,11 +264,11 @@
           
           
           
-<aside class="sidebar" id="sidebar" style="background: url(/Blog/images/background.png);">
+<aside class="sidebar" id="sidebar" style="background: url(/Blog/images/sidebar_background.png);">
   
   <div class="search">
     <div class="form-group">
-      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
     </div>
   </div>
   <div class="search-result-box" id="search-result"></div>
@@ -334,18 +279,31 @@
   <img class="author-avatar" src="/Blog/images/avatar.png" alt="ACANX">
   
   <h1 class="author-name">ACANX</h1>
-  <h2 class="author-description">面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a></h2>
+  <h2 class="author-description"> 面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a></h2>
   <div class="site-count">
     
+    <div class="archives-count">
+      <div class="site-count-title">歸檔</div>
+      <div><a href="/Blog/archives/">31</a></div>
+    </div>
     
     
     
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分類</div>
+      <div><a href="/Blog/categories/">8</a></div>
+    </div>
     
     
     
+    <span class="site-count-divider divider">|</span>
     
-    
-    
+    <div class="tags-count">
+      <div class="site-count-title">標籤</div>
+      <div><a href="/Blog/tags/">41</a></div>
+    </div>
     
   </div>
   
@@ -359,49 +317,54 @@
   <div class="sidebar-sticky">
     
     
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目錄</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#1-%E5%AE%89%E8%A3%85"><span class="toc-text">1.安装</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#2-%E6%8E%88%E6%9D%83"><span class="toc-text">2 授权</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#3-Ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEMysql%E5%85%81%E8%AE%B8%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="toc-text">3.Ubuntu下配置Mysql允许远程连接</span></a></li></ol></div>
+</div>
+
+
+
     
     
     
-    <hr>
-    <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
-      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#1-%E5%AE%89%E8%A3%85"><span class="toc-text">1.安装</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#2-%E6%8E%88%E6%9D%83"><span class="toc-text">2 授权</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#3-Ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEMysql%E5%85%81%E8%AE%B8%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="toc-text">3.Ubuntu下配置Mysql允许远程连接</span></a></li></ol></div>
-    </div>
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交鏈接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="245818784@qq.com" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-github"></i><a href="https://acxnx.github.com/" target="_blank">GitHub</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/acanx" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
     
     
     
-    <hr>
-    <div class="social-link sidebar-item">
-      <div><i class="far fa-address-card"></i>Social Links</p></div>
-      <ul>
-        
-        <li><i class="fas fa-envelope"></i><a href="mailto:acanx@qq.com" target="_blank">电子邮箱</a></li>
-        
-        <li><i class="fab fa-github"></i><a href="https://github.com/acxnx" target="_blank">GitHub</a></li>
-        
-        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/acanx" target="_blank">微博</a></li>
-        
-        <li><i class="fab fa-blog"></i><a href="https://blog.acanx.com/" target="_blank">个人博客</a></li>
-        
-        <li><i class="fab fa-blog"></i><a href="https://my.oschina.net/Adven" target="_blank">开源中国</a></li>
-        
-      </ul>
-    </div>
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情鏈接</div>
+  <ul>
     
+    <li><a href="https://github.com/" target="_blank">GitHub</a></li>
     
-    <hr>
-    <div class="blogroll sidebar-item">
-      <div><i class="fas fa-link"></i>Blogroll</div>
-      <ul>
-        
-        <li><i class="fas fa-link"></i><a href="https://github.com/acxnx" target="_blank">GitHub</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
-        
-        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
-        
-      </ul>
-    </div>
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+    
+    <li><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+    
+  </ul>
+</div>
+
+
     
   </div>
 </aside>
@@ -415,17 +378,20 @@
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
     </div>
     <div class="footer-container">
       <div class="footer-left">
         <div class="copyright">
-          <span class="author">ACANX</span><span class="year"><i class="far fa-copyright"></i>2015 - 2024</span>
+          <span class="author">ACANX</span><span class="year"><i class="far fa-copyright"></i>2025</span>
         </div>
         
-        <div class="busuanzi">
-          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
-        </div>
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
         
       </div>
       <div class="footer-right">
@@ -435,7 +401,7 @@
           
         </div>
         <div class="powered-by">
-          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 強力驅動 | 主題 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
         </div>
       </div>
     </div>
