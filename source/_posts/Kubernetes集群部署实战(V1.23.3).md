@@ -17,7 +17,12 @@ description: Kubernetes集群部署实战，基于Kubernetes v1.32.3、Ubuntu 24
 
 # 前言
 
-Kubernetes集群部署实战，基于Kubernetes v1.32.3、Ubuntu 24.04.2 LTS、Containerd v1.7.29版本搭建。
+![components-of-kubernetes](https://kubernetes.io/images/docs/components-of-kubernetes.svg)
+
+
+[Kubernetes集群](https://kubernetes.io/zh-cn/docs/concepts/overview/components/)部署实战，基于Kubernetes v1.32.3、Ubuntu 24.04.2 LTS、Containerd v1.7.27版本搭建。
+
+
 
 ## 1.1 前置准备
 
@@ -26,13 +31,13 @@ Kubernetes集群部署实战，基于Kubernetes v1.32.3、Ubuntu 24.04.2 LTS、C
 - 服务器系统：PVE 8.1 
 - 虚拟机操作系统 Ubuntu 24.04.2 LTS ISO
 - Kubernetes v1.32.3 （kubeadm、kubelet、kubectl、kube-apiserver、kube-controller-manager、kube-scheduler、kube-proxy）
-- cri-containerd-1.7.29-linux-amd64.tar.gz    [releases](https://github.com/containerd/containerd/releases)       crictl
-- coredns:v1.11.3
-- pause:3.10
-- etcd:3.5.16-0
+- Cri-Containerd v1.7.27    [releases](https://github.com/containerd/containerd/releases)       crictl
+- CoreDNS v1.11.3
+- Pause v3.10
+- Etcd v3.5.16-0
 - Calico v3.29.2
 - Nginx镜像
-- Helm 3.x
+- Helm v3.17.2
 - Kubernetes Dashboard v7.11.1
 
 
@@ -469,15 +474,16 @@ Way2：永久关闭swap分区（推荐，操作需要重启操作系统）
 
 # 二、K8S集群容器运行时 Containerd 准备 
 
-安装docker-ce方法：[https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
+- 安装docker-ce方法：[https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)
 
+- 本文实际采用containerd作为集群容器镜像的运行平台
 
 ## 2.1 Containerd部署文件获取
 
-wget下载指定版本containerd
+wget下载1.7.27版本containerd
 
 ```bash
-~# wget https://github.com/containerd/containerd/releases/download/v2.0.4/containerd-2.0.4-linux-amd64.tar.gz
+~# wget https://github.com/containerd/containerd/releases/download/v1.7.27/cri-containerd-1.7.27-linux-amd64.tar.gz
 ```
 
 解压安装
@@ -1835,11 +1841,559 @@ Commercial support is available at
 
 # 六、 部署Kubernetes Dashboard应用
 
+- [部署和访问 Kubernetes 仪表板（Dashboard）](https://kubernetes.io/zh-cn/docs/tasks/access-application-cluster/web-ui-dashboard/)
+
+## 6.1 安装Helm 
+
+### 6.1.1 Helm介绍及下载
+
+Helm 是查找、分享和使用软件构建 Kubernetes 的最优方式。
+
+- 官网 https://helm.sh/
+- 项目地址 https://github.com/helm/helm
+- Helm安装文档 https://helm.sh/zh/docs/intro/install/
+
+### 6.1.2 Helm安装
 
 
 ```bash
-kubectl get pod -A
+root@k8s-master01:~# wget https://get.helm.sh/helm-v3.17.2-linux-amd64.tar.gz   # 下载文件
+
+root@k8s-master01:~# tar -zxvf /home/acanx/helm-v3.0.0-linux-amd64.tar.gz         # 解压文件
+
+root@k8s-master01:~# sudo mv linux-amd64/helm /usr/local/bin/helm                    # 移动到指定目录
+root@k8s-master01:~# sudo mv /home/acanx/helm /usr/local/bin/helm                    # 移动到指定目录
+
+root@k8s-master01:~# ls -l /usr/local/bin/helm
+
+root@k8s-master01:~# chmod 755 /usr/local/bin/helm
+
+root@k8s-master01:~# helm 
 ```
+
+```bash
+root@k8s-master01:~# helm
+
+The Kubernetes package manager
+
+Common actions for Helm:
+
+- helm search:    search for charts
+- helm pull:      download a chart to your local directory to view
+- helm install:   upload the chart to Kubernetes
+- helm list:      list releases of charts
+
+Environment variables:
+
+| Name                               | Description                                                                                                |
+|------------------------------------|------------------------------------------------------------------------------------------------------------|
+| $HELM_CACHE_HOME                   | set an alternative location for storing cached files.                                                      |
+| $HELM_CONFIG_HOME                  | set an alternative location for storing Helm configuration.                                                |
+| $HELM_DATA_HOME                    | set an alternative location for storing Helm data.                                                         |
+| $HELM_DEBUG                        | indicate whether or not Helm is running in Debug mode                                                      |
+| $HELM_DRIVER                       | set the backend storage driver. Values are: configmap, secret, memory, sql.                                |
+| $HELM_DRIVER_SQL_CONNECTION_STRING | set the connection string the SQL storage driver should use.                                               |
+| $HELM_MAX_HISTORY                  | set the maximum number of helm release history.                                                            |
+| $HELM_NAMESPACE                    | set the namespace used for the helm operations.                                                            |
+| $HELM_NO_PLUGINS                   | disable plugins. Set HELM_NO_PLUGINS=1 to disable plugins.                                                 |
+| $HELM_PLUGINS                      | set the path to the plugins directory                                                                      |
+| $HELM_REGISTRY_CONFIG              | set the path to the registry config file.                                                                  |
+| $HELM_REPOSITORY_CACHE             | set the path to the repository cache directory                                                             |
+| $HELM_REPOSITORY_CONFIG            | set the path to the repositories file.                                                                     |
+| $KUBECONFIG                        | set an alternative Kubernetes configuration file (default "~/.kube/config")                                |
+| $HELM_KUBEAPISERVER                | set the Kubernetes API Server Endpoint for authentication                                                  |
+| $HELM_KUBECAFILE                   | set the Kubernetes certificate authority file.                                                             |
+| $HELM_KUBEASGROUPS                 | set the Groups to use for impersonation using a comma-separated list.                                      |
+| $HELM_KUBEASUSER                   | set the Username to impersonate for the operation.                                                         |
+| $HELM_KUBECONTEXT                  | set the name of the kubeconfig context.                                                                    |
+| $HELM_KUBETOKEN                    | set the Bearer KubeToken used for authentication.                                                          |
+| $HELM_KUBEINSECURE_SKIP_TLS_VERIFY | indicate if the Kubernetes API server's certificate validation should be skipped (insecure)                |
+| $HELM_KUBETLS_SERVER_NAME          | set the server name used to validate the Kubernetes API server certificate                                 |
+| $HELM_BURST_LIMIT                  | set the default burst limit in the case the server contains many CRDs (default 100, -1 to disable)         |
+| $HELM_QPS                          | set the Queries Per Second in cases where a high number of calls exceed the option for higher burst values |
+
+Helm stores cache, configuration, and data based on the following configuration order:
+
+- If a HELM_*_HOME environment variable is set, it will be used
+- Otherwise, on systems supporting the XDG base directory specification, the XDG variables will be used
+- When no other location is set a default location will be used based on the operating system
+
+By default, the default directories depend on the Operating System. The defaults are listed below:
+
+| Operating System | Cache Path                | Configuration Path             | Data Path               |
+|------------------|---------------------------|--------------------------------|-------------------------|
+| Linux            | $HOME/.cache/helm         | $HOME/.config/helm             | $HOME/.local/share/helm |
+| macOS            | $HOME/Library/Caches/helm | $HOME/Library/Preferences/helm | $HOME/Library/helm      |
+| Windows          | %TEMP%\helm               | %APPDATA%\helm                 | %APPDATA%\helm          |
+
+Usage:
+  helm [command]
+
+Available Commands:
+  completion  generate autocompletion scripts for the specified shell
+  create      create a new chart with the given name
+  dependency  manage a chart's dependencies
+  env         helm client environment information
+  get         download extended information of a named release
+  help        Help about any command
+  history     fetch release history
+  install     install a chart
+  lint        examine a chart for possible issues
+  list        list releases
+  package     package a chart directory into a chart archive
+  plugin      install, list, or uninstall Helm plugins
+  pull        download a chart from a repository and (optionally) unpack it in local directory
+  push        push a chart to remote
+  registry    login to or logout from a registry
+  repo        add, list, remove, update, and index chart repositories
+  rollback    roll back a release to a previous revision
+  search      search for a keyword in charts
+  show        show information of a chart
+  status      display the status of the named release
+  template    locally render templates
+  test        run tests for a release
+  uninstall   uninstall a release
+  upgrade     upgrade a release
+  verify      verify that a chart at the given path has been signed and is valid
+  version     print the client version information
+
+Flags:
+      --burst-limit int                 client-side default throttling limit (default 100)
+      --debug                           enable verbose output
+  -h, --help                            help for helm
+      --kube-apiserver string           the address and the port for the Kubernetes API server
+      --kube-as-group stringArray       group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --kube-as-user string             username to impersonate for the operation
+      --kube-ca-file string             the certificate authority file for the Kubernetes API server connection
+      --kube-context string             name of the kubeconfig context to use
+      --kube-insecure-skip-tls-verify   if true, the Kubernetes API server's certificate will not be checked for validity. This will make your HTTPS connections insecure
+      --kube-tls-server-name string     server name to use for Kubernetes API server certificate validation. If it is not provided, the hostname used to contact the server is used
+      --kube-token string               bearer token used for authentication
+      --kubeconfig string               path to the kubeconfig file
+  -n, --namespace string                namespace scope for this request
+      --qps float32                     queries per second used when communicating with the Kubernetes API, not including bursting
+      --registry-config string          path to the registry config file (default "/root/.config/helm/registry/config.json")
+      --repository-cache string         path to the directory containing cached repository indexes (default "/root/.cache/helm/repository")
+      --repository-config string        path to the file containing repository names and URLs (default "/root/.config/helm/repositories.yaml")
+
+Use "helm [command] --help" for more information about a command.
+root@k8s-master01:~# 
+```
+
+若输出上述内容，则说明安装成功
+
+
+
+## 6.2 安装kubernetes-dashboard
+
+
+### 6.2.1 添加 kubernetes-dashboard 仓库
+
+```bash
+helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+```
+
+- /root/.cache/helm/repository/kubernetes-dashboard-charts.txt
+- /root/.cache/helm/repository/kubernetes-dashboard-index.yaml
+
+
+```bash
+root@k8s-master01:~/.cache/helm/repository# helm repo list
+
+NAME                	URL                                    
+kubernetes-dashboard	https://kubernetes.github.io/dashboard/
+root@k8s-master01:~/.cache/helm/repository# 
+```
+
+
+
+### 6.2.2 使用 kubernetes-dashboard Chart 部署名为“kubernetes-dashboard” 的 Helm Release
+
+```bash
+helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --create-namespace --namespace kubernetes-dashboard
+```
+
+```bash
+root@k8s-master01:~# helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --create-namespace --namespace kubernetes-dashboard
+
+Release "kubernetes-dashboard" does not exist. Installing it now.
+NAME: kubernetes-dashboard
+LAST DEPLOYED: Sun Mar 23 17:44:31 2025
+NAMESPACE: kubernetes-dashboard
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+*************************************************************************************************
+*** PLEASE BE PATIENT: Kubernetes Dashboard may need a few minutes to get up and become ready ***
+*************************************************************************************************
+
+Congratulations! You have just installed Kubernetes Dashboard in your cluster.
+
+To access Dashboard run:
+  kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443
+
+NOTE: In case port-forward command does not work, make sure that kong service name is correct.
+      Check the services in Kubernetes Dashboard namespace using:
+        kubectl -n kubernetes-dashboard get svc
+
+Dashboard will be available at:
+  https://localhost:8443
+root@k8s-master01:~# 
+
+
+
+# 注意：以下命令未做验证，后续可以测试确认
+# 我的集群使用默认参数安装 kubernetes-dashboard-kong 出现异常 8444 端口占用
+# 使用下面的命令进行安装，在安装时关闭kong.tls功能
+root@k8s-master01:~# helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dashboard --namespace kubernetes-dashboard --set kong.admin.tls.enabled=false   # 原文链接：https://blog.csdn.net/qq_33921750/article/details/136668014
+```
+
+#### 查看kubernetes-dashboard相关的pod的安装情况
+
+```bash
+root@k8s-master01:~# watch kubectl get pod -A
+
+NAMESPACE              NAME                                                    READY   STATUS              RESTARTS   AGE
+calico-apiserver       calico-apiserver-7b7bbf4d75-b77ph                       1/1     Running             0          18h
+calico-apiserver       calico-apiserver-7b7bbf4d75-gqq5w                       1/1     Running             0          18h
+calico-system          calico-kube-controllers-cf49d8944-6zv2z                 1/1     Running             0          18h
+calico-system          calico-node-2nfvf                                       1/1     Running             0          18h
+calico-system          calico-node-nxhvj                                       1/1     Running             0          18h
+calico-system          calico-node-v9lp9                                       1/1     Running             0          18h
+calico-system          calico-typha-7b6f98bc78-49bf5                           1/1     Running             0          18h
+calico-system          calico-typha-7b6f98bc78-7vhd6                           1/1     Running             0          18h
+calico-system          csi-node-driver-6nbvr                                   2/2     Running             0          18h
+calico-system          csi-node-driver-9cqq5                                   2/2     Running             0          18h
+calico-system          csi-node-driver-9pm4t                                   2/2     Running             0          18h
+default                nginxweb-7c88f6c77-pck4f                                1/1     Running             0          17h
+default                nginxweb-7c88f6c77-rv76n                                1/1     Running             0          17h
+default                nginxweb-7c88f6c77-vb8xj                                1/1     Running             0          17h
+kube-system            coredns-6766b7b6bb-6dtl7                                1/1     Running             0          21h
+kube-system            coredns-6766b7b6bb-lrpw7                                1/1     Running             0          21h
+kube-system            etcd-k8s-master01                                       1/1     Running             0          21h
+kube-system            kube-apiserver-k8s-master01                             1/1     Running             0          21h
+kube-system            kube-controller-manager-k8s-master01                    1/1     Running             0          21h
+kube-system            kube-proxy-6g8dn                                        1/1     Running             0          21h
+kube-system            kube-proxy-kmzv6                                        1/1     Running             0          19h
+kube-system            kube-proxy-pj2t5                                        1/1     Running             0          19h
+kube-system            kube-scheduler-k8s-master01                             1/1     Running             0          21h
+kubernetes-dashboard   kubernetes-dashboard-api-c787c9d97-5rqvp                0/1     ContainerCreating   0          2m35s
+kubernetes-dashboard   kubernetes-dashboard-auth-7ff7855689-vmltw              0/1     ContainerCreating   0          2m35s
+kubernetes-dashboard   kubernetes-dashboard-kong-79867c9c48-txfql              0/1     Init:0/1            0          2m35s
+kubernetes-dashboard   kubernetes-dashboard-metrics-scraper-84655b9bd8-mq8h7   0/1     ContainerCreating   0          2m35s
+kubernetes-dashboard   kubernetes-dashboard-web-658946f7f9-crj69               0/1     ContainerCreating   0          2m35s
+tigera-operator        tigera-operator-ccfc44587-vswlt                         1/1     Running             0          19h
+
+
+
+root@k8s-master01:~/.cache/helm/repository# kubectl get pod -A
+
+NAMESPACE              NAME                                                    READY   STATUS    RESTARTS   AGE
+calico-apiserver       calico-apiserver-7b7bbf4d75-b77ph                       1/1     Running   0          19h
+calico-apiserver       calico-apiserver-7b7bbf4d75-gqq5w                       1/1     Running   0          19h
+calico-system          calico-kube-controllers-cf49d8944-6zv2z                 1/1     Running   0          19h
+calico-system          calico-node-2nfvf                                       1/1     Running   0          19h
+calico-system          calico-node-nxhvj                                       1/1     Running   0          19h
+calico-system          calico-node-v9lp9                                       1/1     Running   0          19h
+calico-system          calico-typha-7b6f98bc78-49bf5                           1/1     Running   0          19h
+calico-system          calico-typha-7b6f98bc78-7vhd6                           1/1     Running   0          19h
+calico-system          csi-node-driver-6nbvr                                   2/2     Running   0          19h
+calico-system          csi-node-driver-9cqq5                                   2/2     Running   0          19h
+calico-system          csi-node-driver-9pm4t                                   2/2     Running   0          19h
+default                nginxweb-7c88f6c77-pck4f                                1/1     Running   0          18h
+default                nginxweb-7c88f6c77-rv76n                                1/1     Running   0          18h
+default                nginxweb-7c88f6c77-vb8xj                                1/1     Running   0          18h
+kube-system            coredns-6766b7b6bb-6dtl7                                1/1     Running   0          22h
+kube-system            coredns-6766b7b6bb-lrpw7                                1/1     Running   0          22h
+kube-system            etcd-k8s-master01                                       1/1     Running   0          22h
+kube-system            kube-apiserver-k8s-master01                             1/1     Running   0          22h
+kube-system            kube-controller-manager-k8s-master01                    1/1     Running   0          22h
+kube-system            kube-proxy-6g8dn                                        1/1     Running   0          22h
+kube-system            kube-proxy-kmzv6                                        1/1     Running   0          20h
+kube-system            kube-proxy-pj2t5                                        1/1     Running   0          20h
+kube-system            kube-scheduler-k8s-master01                             1/1     Running   0          22h
+kubernetes-dashboard   kubernetes-dashboard-api-c787c9d97-5rqvp                1/1     Running   0          41m
+kubernetes-dashboard   kubernetes-dashboard-auth-7ff7855689-vmltw              1/1     Running   0          41m
+kubernetes-dashboard   kubernetes-dashboard-kong-79867c9c48-txfql              1/1     Running   0          41m
+kubernetes-dashboard   kubernetes-dashboard-metrics-scraper-84655b9bd8-mq8h7   1/1     Running   0          41m
+kubernetes-dashboard   kubernetes-dashboard-web-658946f7f9-crj69               1/1     Running   0          41m
+tigera-operator        tigera-operator-ccfc44587-vswlt                         1/1     Running   0          20h
+```
+
+
+## 6.3 访问Dashboard前的准备
+
+本节参考自官方文档 
+
+- [创建示例用户](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
+
+
+### 6.3.1 创建示例用户 service-account
+
+创建dashboard-service-account.yaml文件
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+```
+
+创建示例用户service-account命令
+
+```bash
+root@k8s-master01:~# kubectl create -f dashboard-service-account.yaml
+```
+
+
+### 6.3.2 创建 ClusterRoleBinding
+
+创建dashboard-cluster-role-binding.yaml文件
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kubernetes-dashboard
+```
+
+创建 ClusterRoleBinding
+
+```bash
+# 创建 ClusterRoleBinding
+root@k8s-master01:~# kubectl create -f dashboard-cluster-role-binding.yaml
+```
+
+
+
+创建dashboard-admin-user.yaml 文件
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kubernetes-dashboard
+```
+
+创建 ServiceAccount、ClusterRoleBinding
+
+```bash
+root@k8s-master01:~/.cache/helm/repository# kubectl create -f /home/acanx/Dashboard/dashboard-admin-user.yaml
+
+serviceaccount/admin-user created
+clusterrolebinding.rbac.authorization.k8s.io/admin-user created
+```
+
+#### 6.3.3 获取 ServiceAccount 的 Bearer Token（短期访问的Token令牌） 
+
+```bash
+# 生成toke命令
+root@k8s-master01:~/.cache/helm/repository# kubectl -n kubernetes-dashboard create token admin-user
+
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjZPMURRc2RoVjl0YWJnUGU2RDVyLTRKblhybnhBaG1oS3JoVGNBTjh6UkkifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzQyNzMxMjUwLCJpYXQiOjE3NDI3Mjc2NTAsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwianRpIjoiYWM2NWZiNTItNjViMi00ZmQ5LWI4OTctMzQ4NjI4N2UzYTlmIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJhZG1pbi11c2VyIiwidWlkIjoiNTBhNzgwZTYtODgzOC00ODI1LTk5ODktMzdhYTE0ZjM5ZjlkIn19LCJuYmYiOjE3NDI3Mjc2NTAsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDphZG1pbi11c2VyIn0.9j0DPg2sKuVfODjWBxxXN3-r1GmXCGV58LULx81fiCwE5IdCp0LK4to0T35c55yiZjkW2fc7l01k6V7uKFTCGiJ3TDJn_1JJe5lZpWBWXSWoO_q-1nkMgniGPowieHEny3ZU1wm-Kk-nrr2CYZKhXShGDbRxpnjAPf1X0aB6lAzPt59GKVYpPaMYhcEBMMT_ASZrGLYrNR31UpbEXf2UP9Cgyh9m5vpA48FOJKZNt8FRq20egHWlWCw4a4PPb261w81vcWWB1bwTHIw-8CyNZjptrPVX06ch4DT-eX5No5jr8kh2gCiq--bARESxjgDjCebBS8O96NpKRWtQMQbFAQ
+```
+
+获取到的toke是类似上述的字符串
+
+
+
+#### 6.3.4 获取 ServiceAccount 的长期 Bearer Token （长期Token） 
+
+- 创建dashboard-secret.yaml文件
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+  annotations:
+    kubernetes.io/service-account.name: "admin-user"   
+type: kubernetes.io/service-account-token  
+```
+
+- 获取 ServiceAccount 的长期 Bearer Token 
+
+```bash
+# 创建
+root@k8s-master01:~# kubectl create -f /home/acanx/Dashboard/dashboard-secret.yaml
+
+# 获取对应的token令牌
+root@k8s-master01:~# kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath="{.data.token}" | base64 -d
+
+eyJhbGciOiJSUzI1NiIsImtpZCI6IjZPMURRc2RoVjl0YWJnUGU2RDVyLTRKblhybnhBaG1oS3JoVGNBTjh6UkkifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI1MGE3ODBlNi04ODM4LTQ4MjUtOTk4OS0zN2FhMTRmMzlmOWQiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.UG-iAoiCRrMeUePUi5ryn4tUOhFC94eTv_THHkrT_XZhUwC-IHqy9zkmi20tfQ-jnSnzy9_H9Z_auNw6Y4VtGB6pUs7srk6X9AIr4JDrScEVSMLbLXyCsdwGKbAaQJ8n2KA0J_pXibAiaQ77vCIDs9A4HXjn-T7GhoWEeswAcZF1N1SYbDyMxC-paMKb2I5CxL6pxtgWXuPCFkHxVnzeAT9Pswj-q0_Htr46U0Ieyo3dEBVGoOE4FA56UCYEnIfIv-OHXHytcxdaETrKl22EWleAYYENQy82qrdn8eCMK9ahOQyvCFORUbltJWP0hRkIRoMSGx1gD1DMHWMd6T9IRw
+```
+
+
+
+### 6.4 正式访问Dashboard  
+
+参考资料 [Kubernetes 集群中安装和配置 Kubernetes Dashboard](https://blog.csdn.net/qq719779232/article/details/145212142)
+
+
+### 6.4.1 方式一：使用 Port Forwarding进行命令行代理
+
+Port Forwarding 是一种临时性的解决方案，它允许你通过本地机器上的端口直接访问集群内部的服务。这对于开发人员来说非常方便，因为他们不需要对外暴露服务即可进行调试或测试。
+
+
+#### 6.4.1.1 开启访问
+
+通过 Port Forwarding 访问 Dashboard，需要先执行如下命令：
+
+```bash
+kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard 8443:443
+```
+
+这将Dashboard在 [https://localhost:8443](https://localhost:8443) 上可用。
+
+
+#### 6.4.1.2 优点与缺点
+
+- 这种方式的优点在于方法简单易用，无需更改任何集群配置，适合小规模测试或个人使用。但仅限于执行命令的本地机器，它是临时的，关闭终端后连接即断开，无法在其他机器上访问，并且每次使用时都需要手动开启端口转发。
+
+- 也就是说，无法直接在集群外部访问，此方案不适合本次（集群外访问）实际访问场景，因此需要调整采用其他方案
+
+
+### 6.4.2 方式二：修改服务类型为 NodePort
+
+#### 6.4.2.1 方法概述
+
+- NodePort 允许 Kubernetes 服务在各个集群节点的特定端口上对外暴露。这使得用户能够通过任意节点的 IP 地址和指定 NodePort 进行访问 Dashboard。（范围通常是 30000-32767），从而允许外部流量通过该端口进入集群并访问指定的服务。
+
+- 也就是支持集群外部访问
+
+
+#### 6.4.2.2 开启访问
+
+编辑 Dashboard 的服务配置，将其类型更改为 NodePort：
+
+```bash
+root@k8s-master01:~# kubectl patch svc kubernetes-dashboard-kong-proxy -n kubernetes-dashboard --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"}]'
+# TODO 若需要指定端口，可以指定一个固定的 nodePort：
+root@k8s-master01:~# kubectl patch svc kubernetes-dashboard-kong-proxy -n kubernetes-dashboard --type='json' -p '[{"op":"add","path":"/spec/ports/0/nodePort","value":30000}]'
+```
+
+以下是实际操作及结果：
+
+```bash
+root@k8s-master01:~# kubectl patch svc kubernetes-dashboard-kong-proxy -n kubernetes-dashboard --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"}]'
+
+service/kubernetes-dashboard-kong-proxy patched
+root@k8s-master01:~# kubectl get svc -A
+
+NAMESPACE              NAME                                   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE
+calico-apiserver       calico-api                             ClusterIP   10.109.219.68    <none>        443/TCP                  21h
+calico-system          calico-kube-controllers-metrics        ClusterIP   None             <none>        9094/TCP                 20h
+calico-system          calico-typha                           ClusterIP   10.104.149.150   <none>        5473/TCP                 21h
+default                kubernetes                             ClusterIP   10.96.0.1        <none>        443/TCP                  23h
+default                nginxweb-service                       NodePort    10.106.65.218    <none>        80:30080/TCP             19h
+kube-system            kube-dns                               ClusterIP   10.96.0.10       <none>        53/UDP,53/TCP,9153/TCP   23h
+kubernetes-dashboard   kubernetes-dashboard-api               ClusterIP   10.104.42.174    <none>        8000/TCP                 128m
+kubernetes-dashboard   kubernetes-dashboard-auth              ClusterIP   10.98.125.185    <none>        8000/TCP                 128m
+kubernetes-dashboard   kubernetes-dashboard-external          NodePort    10.101.246.117   <none>        443:30011/TCP            7m8s
+kubernetes-dashboard   kubernetes-dashboard-kong-proxy        NodePort    10.110.23.250    <none>        443:31094/TCP            128m
+kubernetes-dashboard   kubernetes-dashboard-metrics-scraper   ClusterIP   10.102.211.164   <none>        8000/TCP                 128m
+kubernetes-dashboard   kubernetes-dashboard-web               ClusterIP   10.107.236.126   <none>        8000/TCP                 128m
+
+# 相关的命令1
+root@k8s-master01:~# kubectl get svc -A | grep dash
+
+kubernetes-dashboard   kubernetes-dashboard-api               ClusterIP   10.104.42.174    <none>        8000/TCP                 166m
+kubernetes-dashboard   kubernetes-dashboard-auth              ClusterIP   10.98.125.185    <none>        8000/TCP                 166m
+kubernetes-dashboard   kubernetes-dashboard-external          NodePort    10.101.246.117   <none>        443:30011/TCP            44m
+kubernetes-dashboard   kubernetes-dashboard-kong-proxy        NodePort    10.110.23.250    <none>        443:31094/TCP            166m
+kubernetes-dashboard   kubernetes-dashboard-metrics-scraper   ClusterIP   10.102.211.164   <none>        8000/TCP                 166m
+kubernetes-dashboard   kubernetes-dashboard-web               ClusterIP   10.107.236.126   <none>        8000/TCP                 166m
+
+# 相关的命令2
+root@k8s-master01:~# kubectl get svc -A -n kubernetes-dashboard
+
+NAMESPACE              NAME                                   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE
+calico-apiserver       calico-api                             ClusterIP   10.109.219.68    <none>        443/TCP                  21h
+calico-system          calico-kube-controllers-metrics        ClusterIP   None             <none>        9094/TCP                 21h
+calico-system          calico-typha                           ClusterIP   10.104.149.150   <none>        5473/TCP                 21h
+default                kubernetes                             ClusterIP   10.96.0.1        <none>        443/TCP                  24h
+default                nginxweb-service                       NodePort    10.106.65.218    <none>        80:30080/TCP             20h
+kube-system            kube-dns                               ClusterIP   10.96.0.10       <none>        53/UDP,53/TCP,9153/TCP   24h
+kubernetes-dashboard   kubernetes-dashboard-api               ClusterIP   10.104.42.174    <none>        8000/TCP                 165m
+kubernetes-dashboard   kubernetes-dashboard-auth              ClusterIP   10.98.125.185    <none>        8000/TCP                 165m
+kubernetes-dashboard   kubernetes-dashboard-external          NodePort    10.101.246.117   <none>        443:30011/TCP            44m
+kubernetes-dashboard   kubernetes-dashboard-kong-proxy        NodePort    10.110.23.250    <none>        443:31094/TCP            165m
+kubernetes-dashboard   kubernetes-dashboard-metrics-scraper   ClusterIP   10.102.211.164   <none>        8000/TCP                 165m
+kubernetes-dashboard   kubernetes-dashboard-web               ClusterIP   10.107.236.126   <none>        8000/TCP                 165m
+
+```
+
+
+
+如果显示您的连接不是私密连接，在当前页面用键盘输入thisisunsafe,不是在地址栏输入，就直接输入，页面即会自动刷新进入网页。不行就多输入几次，但是要确保输入是正确的。具体请查看这篇[博客](https://blog.csdn.net/qq719779232/article/details/144852360)
+
+
+#### 6.4.2.4 访问Kubernetes Dashboard Web页面
+
+可以看到随机开放了31094端口访问，浏览器中打开 https://192.168.11.161:31094 测试（忽略不是私密连接的提示后）可以正常打开，输入token后能够正常登录。
+
+![Kubernetes-Dashboard-HomePage](/Node/imgs/03_02/Dashboard-Load.png)
+
+![Kubernetes-Dashboard-HomePage](/Node/imgs/03_02/Dashboard.png)
+
+
+
+#### 6.4.2.5 优点与缺点
+
+- 这种方法一旦配置完成，只要集群存在就可以持续访问，提供了长期稳定的访问途径；同时可以直接通过任意节点 IP 加上指定端口号来访问服务，易于访问。
+
+- 但是，它也带来了较高的安全风险，如果未正确配置防火墙规则，可能会导致服务被未经授权的人访问；
+
+- 此外，还需要选择一个未被占用的端口，因此有一定的端口限制。
+
+
+#### 6.4.2.6 参考资料
+
+- [kubernetes-dashboard-7.11.1/README.md](https://github.com/kubernetes/dashboard/blob/kubernetes-dashboard-7.11.1/README.md)
+- [访问仪表板](https://github.com/kubernetes/dashboard/tree/master/docs/user/accessing-dashboard)
+- [69.Kubernetes(k8s)手把手教程—部署Dashboard以图形化方式管理Kubernetes](https://www.bilibili.com/video/BV15UsSeDEZA/)
+- [Kubernetes(k8s) Web-UI界面(一)：部署和访问仪表板(Dashboard)](https://www.cnblogs.com/renshengdezheli/p/17513879.html)
+- [二进制安装Kubernetes（k8s）v1.32.0](https://www.oiox.cn/index.php/archives/428/)
+
+### 6.5 清理和后续步骤
+
+删除管理员ServiceAccount和ClusterRoleBinding。
+
+```bash
+root@k8s-master01:~# kubectl -n kubernetes-dashboard delete serviceaccount admin-user
+root@k8s-master01:~# kubectl -n kubernetes-dashboard delete clusterrolebinding admin-user
+```
+
+了解有关如何在 Kubernetes 中授予/拒绝权限的更多信息，阅读官方[身份验证](https://kubernetes.io/docs/reference/access-authn-authz/authentication/)和[授权](https://kubernetes.io/docs/reference/access-authn-authz/authorization/)文档。
+
+
+
+
 
 
 # 七、 实际部署过程中遇到的问题
@@ -1854,10 +2408,10 @@ kubectl get pod -A
 ### 7.1.3 安装如遇到错误，需要修改配置，关闭kubelet 
 
 ```bash
-sudo rm -rf /etc/kubernetes/manifests/kube-apiserver.yaml
-sudo rm -rf /etc/kubernetes/manifests/kube-controller-manager.yaml
-sudo rm -rf /etc/kubernetes/manifests/kube-scheduler.yaml
-sudo rm -rf /etc/kubernetes/manifests/etcd.yaml
+~# sudo rm -rf /etc/kubernetes/manifests/kube-apiserver.yaml
+~# sudo rm -rf /etc/kubernetes/manifests/kube-controller-manager.yaml
+~# sudo rm -rf /etc/kubernetes/manifests/kube-scheduler.yaml
+~# sudo rm -rf /etc/kubernetes/manifests/etcd.yaml
 
 ~# sudo rm -rf /etc/kubernetes/manifests/kube-apiserver.yaml && sudo rm -rf /etc/kubernetes/manifests/kube-controller-manager.yaml && sudo rm -rf /etc/kubernetes/manifests/kube-scheduler.yaml && sudo rm -rf /etc/kubernetes/manifests/etcd.yaml
 
@@ -1881,6 +2435,7 @@ sudo kill -9 1234
 
 
 -  https://blog.csdn.net/m0_51510236/article/details/136329885
+
 ```bash
 root@k8s-master01:~# sudo kubeadm init \
 --apiserver-advertise-address=192.168.11.161 \
@@ -1955,9 +2510,9 @@ Mar 22 13:26:31 k8s-master01 kubelet[9760]: E0322 13:26:31.073491    9760 event.
 
 #### 7.1.4.3 参考：
 
-- https://blog.csdn.net/weixin_40444270/article/details/132543441
-- https://blog.csdn.net/nxg810251/article/details/145170594
-- https://blog.csdn.net/weixin_42434261/article/details/144539712
+- [K8s的Pod出现Init:ImagePullBackOff问题的解决(以calico为例)](https://blog.csdn.net/weixin_40444270/article/details/132543441)
+- [Kubernetes1.32版本搭建【超详细】](https://blog.csdn.net/nxg810251/article/details/145170594)
+- [Kubernetes1.32版本搭建【极简版】](https://blog.csdn.net/weixin_42434261/article/details/144539712)
 
 
 
@@ -1972,5 +2527,6 @@ Mar 22 13:26:31 k8s-master01 kubelet[9760]: E0322 13:26:31.073491    9760 event.
 ### 8.1.3 镜像源加速
 
 ### 8.1.4 网络配置
+
 
 
