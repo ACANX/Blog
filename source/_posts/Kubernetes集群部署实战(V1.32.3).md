@@ -1,5 +1,5 @@
 ---
-title: Kubernetes集群部署实战(基于v1.23.3版本)
+title: Kubernetes集群部署实战(基于v1.32.3版本)
 date: 2025-03-23 10:10:00
 categories: "Kubernetes" #文章分类目录 可以省略
 tags: #Java 
