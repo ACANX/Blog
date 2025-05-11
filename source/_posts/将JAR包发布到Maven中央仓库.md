@@ -13,10 +13,11 @@ description: 将JAR包发布到Maven中央仓库操作过程记录  #
 
 # 最新操作教程
 
+- [发布JAR包到Maven中央仓库流程](https://www.yuque.com/acanx/wy7t4r/xfudt5p32dhxzg0q)
 - [发布jar包到maven中央仓库，完整记录，规避一些不必要的坑](https://blog.csdn.net/qq_41813208/article/details/112370194)
 - [https://oss.sonatype.org/](https://oss.sonatype.org/)
 - [https://issues.sonatype.org/](https://issues.sonatype.org/)
-- []()
+
 
 
 
@@ -46,6 +47,9 @@ mvn install后加上参数**-Dgpg.skip**，例如：mvn install **-Dgpg.skip**
 
 
 
+## 完整操作流程
+
+- [发布JAR包到Maven中央仓库流程](https://www.yuque.com/acanx/wy7t4r/xfudt5p32dhxzg0q)
 
 
 ## 仍然存在的问题
