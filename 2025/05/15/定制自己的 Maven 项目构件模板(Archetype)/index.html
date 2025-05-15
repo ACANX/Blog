@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/Blog/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/Blog/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/Blog/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/Blog/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/Blog/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/Blog/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/Blog/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/Blog/atom.xml" title="ACANX" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/Blog/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/Blog/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/Blog/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/Blog/css/page.css">
+<link rel="stylesheet" type="text/css" href="/Blog/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/Blog/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/Blog/css/lightgallery.min.css">
+    <script type="text/javascript" src="/Blog/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/util.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/Blog/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/Blog/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/Blog/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/Blog/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/Blog/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/Blog/js/custom.js"></script>
+    <title>定制自己的 Maven 项目构件模板（Archetype） | ACANX - 博客</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/Blog/">ACANX</a></h1>
+        <h2 class="subtitle">博客</h2>
+      </div>
+      <div class="logo">
+        <img src="/Blog/images/ARIA_logo.png" alt="logo">
+      </div>
+    </div>
+    
+<nav id="nav" class="nav">
+  <a id="nav-toggle" class="nav-toggle"><i class="fas fa-bars"></i></a>
+  <ul id="menu">
+    
+    <li><a href="/Blog/">首页</a></li>
+    
+    <li><a href="/Blog/archives/">归档</a></li>
+    
+    <li><a href="/Blog/categories/">分类</a></li>
+    
+    <li><a href="/Blog/tags/">标签</a></li>
+    
+    <li><a href="/Blog/about/">关于</a></li>
+    
+  </ul>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="post">
+  
+  <article class="post-container card animate" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://acanx.gitee.io/Blog/2025/05/15/%E5%AE%9A%E5%88%B6%E8%87%AA%E5%B7%B1%E7%9A%84%20Maven%20%E9%A1%B9%E7%9B%AE%E6%9E%84%E4%BB%B6%E6%A8%A1%E6%9D%BF(Archetype)/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="ACANX">
+       <meta itemprop="description" content="面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a>">
+       <meta itemprop="image" content="/Blog/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="ACANX">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">定制自己的 Maven 项目构件模板（Archetype）</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2025-05-15T14:17:17+08:00">2025-05-15 14:17:17</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/Blog/categories/Maven/" itemprop="url" rel="index"><span itemprop="name">Maven</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <p>当你创建一个新的Maven模块时，要么使用maven官方的构件模板（Archetype），因为项目好久都没更新，生成的模板插件比较臃肿，项目模块开多了以后，用起来就不太方便了；要么基于已有的项目复制粘贴再修改调整，费时费力还容易出错。因此决定定制自己的 Maven 项目构件模板（Archetype），具体的步骤如下：</p>
+<h1 id="一、创建原型模板项目"><a href="#一、创建原型模板项目" class="headerlink" title="一、创建原型模板项目"></a><strong>一、创建原型模板项目</strong></h1><p>创建原型模板既可以使用 Maven 的 <code>archetype</code> 插件基于现有的某个项目来生成模板，也可以手动创建，下面分别做介绍。</p>
+<h2 id="方式一-从现有项目生成"><a href="#方式一-从现有项目生成" class="headerlink" title="方式一 从现有项目生成"></a>方式一 <strong>从现有项目生成</strong></h2><p>选择一个符合目标模板的Maven项目模块，使用以下命令来创建原型模板：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn archetype:create-from-project -Dinteractive=<span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>在项目根目录运行此命令，Maven 会生成一个 <code>target/generated-sources/archetype</code> 目录，即你的模板项目。</li>
+</ul>
+<h2 id="方式二-手动创建"><a href="#方式二-手动创建" class="headerlink" title="方式二 手动创建"></a>方式二 <strong>手动创建</strong></h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn archetype:generate  -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-archetype  -DarchetypeVersion=1.4<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>根据提示输入 <code>groupId</code>、<code>artifactId</code> 和 <code>version</code>，生成一个空的模板项目。</li>
+</ul>
+<h1 id="二、-配置模板结构"><a href="#二、-配置模板结构" class="headerlink" title="二、 配置模板结构"></a><strong>二、 配置模板结构</strong></h1><p>模板的核心是 <code>src/main/resources/archetype-resources</code> 目录和 <code>archetype-metadata.xml</code> 文件。</p>
+<h2 id="关键文件结构"><a href="#关键文件结构" class="headerlink" title="关键文件结构"></a><strong>关键文件结构</strong></h2><pre><code>my-custom-archetype/
+├── pom.xml
+└── src/
+    └── main/
+        ├── resources/
+        │   ├── archetype-resources/             # 项目模板文件目录
+        │   │   ├── src/
+        │   │   ├── pom.xml
+        │   └── META-INF/
+        │       └── maven/
+        │           └── archetype-metadata.xml  # 元数据配置
+        └── archetype.properties                # 可选属性
+</code></pre>
+<h1 id="三、-编辑调整-archetype-metadata-xml"><a href="#三、-编辑调整-archetype-metadata-xml" class="headerlink" title="三、 编辑调整 archetype-metadata.xml"></a><strong>三、 编辑调整 <code>archetype-metadata.xml</code></strong></h1><p>在 <code>archetype-metadata.xml</code> 中定义模板的包含文件和变量替换规则。</p>
+<h2 id="示例配置"><a href="#示例配置" class="headerlink" title="示例配置"></a><strong>示例配置</strong></h2><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">archetype-descriptor</span> <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.1.0 http://maven.apache.org/xsd/archetype-catalog-1.1.0.xsd&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;tool-archetype&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.1.0&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">fileSets</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">fileSet</span> <span class="hljs-attr">filtered</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">packaged</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">encoding</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/java<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.java<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">fileSet</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">fileSet</span> <span class="hljs-attr">filtered</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">encoding</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/resources<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.properties<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">fileSet</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">fileSet</span> <span class="hljs-attr">encoding</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/resources<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.json<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.yaml<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">fileSet</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">fileSet</span> <span class="hljs-attr">filtered</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">packaged</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">encoding</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/test/java<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.java<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">fileSet</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">fileSet</span> <span class="hljs-attr">filtered</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">encoding</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/test/resources<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.properties<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">fileSet</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">fileSet</span> <span class="hljs-attr">encoding</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/test/resources<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.json<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.yaml<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">fileSet</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">fileSet</span> <span class="hljs-attr">encoding</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>.mvn<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.config<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">fileSet</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">fileSet</span> <span class="hljs-attr">encoding</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>.gitignore<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">fileSet</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">fileSets</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">requiredProperties</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">requiredProperty</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&quot;customProperty&quot;</span>/&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">requiredProperties</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">archetype-descriptor</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>filtered=&quot;true&quot;</code>：启用变量替换（如 <code>$&#123;groupId&#125;</code>、<code>$&#123;artifactId&#125;</code>）。</li>
+<li><code>packaged=&quot;true&quot;</code>：自动将文件放入包路径（如 <code>com/example</code>）。</li>
+</ul>
+<h1 id="四、自定义模板文件"><a href="#四、自定义模板文件" class="headerlink" title="四、自定义模板文件"></a><strong>四、自定义模板文件</strong></h1><p>在 <code>archetype-resources</code> 目录中放置项目模板文件，使用占位符变量：  </p>
+<p><img src="https://foruda.gitee.com/images/1747290518766801447/96c0eb5b_526602.png" alt="输入图片说明" title="屏幕截图"></p>
+<h2 id="4-1-示例-pom-xml-模板"><a href="#4-1-示例-pom-xml-模板" class="headerlink" title="4.1 示例 pom.xml 模板"></a><strong>4.1 示例 <code>pom.xml</code> 模板</strong></h2><figure class="hljs highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>$&#123;groupId&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>$&#123;artifactId&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>jar<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>$&#123;artifactId&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://www.acanx.com<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="hljs-tag">&lt;/<span class="hljs-name">project.build.sourceEncoding</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.release</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.release</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">maven-compiler-plugin.version</span>&gt;</span>3.14.0<span class="hljs-tag">&lt;/<span class="hljs-name">maven-compiler-plugin.version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">fastjson2.version</span>&gt;</span>2.0.54<span class="hljs-tag">&lt;/<span class="hljs-name">fastjson2.version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">lombok.version</span>&gt;</span>1.18.36<span class="hljs-tag">&lt;/<span class="hljs-name">lombok.version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">junit-jupiter.version</span>&gt;</span>5.12.2<span class="hljs-tag">&lt;/<span class="hljs-name">junit-jupiter.version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br><span class="hljs-comment">&lt;!--        &lt;dependency&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--            &lt;groupId&gt;com.alibaba.fastjson2&lt;/groupId&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--            &lt;artifactId&gt;fastjson2&lt;/artifactId&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--            &lt;version&gt;$&#123;fastjson2.version&#125;&lt;/version&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--        &lt;/dependency&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--        &lt;dependency&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--            &lt;artifactId&gt;lombok&lt;/artifactId&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--            &lt;version&gt;1.18.36&lt;/version&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--            &lt;scope&gt;provided&lt;/scope&gt;--&gt;</span><br><span class="hljs-comment">&lt;!--        &lt;/dependency&gt;--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.junit.jupiter<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit-jupiter-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;junit-jupiter.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br><br><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span><br><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.14.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="4-2-Java-类模板"><a href="#4-2-Java-类模板" class="headerlink" title="4.2 Java 类模板"></a><strong>4.2 Java 类模板</strong></h2><ul>
+<li>App.java</li>
+</ul>
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java">#set( $symbol_pound = &#x27;#&#x27; )  <br>#set( $symbol_dollar = &#x27;$&#x27; )  <br>#set( $symbol_escape = &#x27;\&#x27; )  <br><span class="hljs-keyword">package</span> $&#123;<span class="hljs-keyword">package</span>&#125;;  <br>  <br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> </span>&#123;  <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;        System.out.println(<span class="hljs-string">&quot;Custom Property: $&#123;customProperty&#125;&quot;</span>);    &#125;&#125;  <br></code></pre></td></tr></table></figure>
+
+<h2 id="4-3-Java-单元测试类模板"><a href="#4-3-Java-单元测试类模板" class="headerlink" title="4.3 Java 单元测试类模板"></a><strong>4.3 Java 单元测试类模板</strong></h2><ul>
+<li>AppTest.java</li>
+</ul>
+<figure class="hljs highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java">#set( $symbol_pound = &#x27;#&#x27; )  <br>#set( $symbol_dollar = &#x27;$&#x27; )  <br>#set( $symbol_escape = &#x27;\&#x27; )package $&#123;package&#125;;  <br>  <br>  <br><span class="hljs-keyword">import</span> org.junit.jupiter.api.Assertions;  <br><span class="hljs-keyword">import</span> org.junit.jupiter.api.Test;  <br>  <br><span class="hljs-comment">/**  </span><br><span class="hljs-comment"> * Unit test for simple App. */</span><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppTest</span> </span>&#123;  <br>  <br>    <span class="hljs-comment">/**  </span><br><span class="hljs-comment">     * Rigorous Test :-)     */</span>    <span class="hljs-meta">@Test</span>  <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">shouldAnswerWithTrue</span><span class="hljs-params">()</span> </span>&#123;  <br>        Assertions.assertTrue(<span class="hljs-keyword">true</span>);  <br>    &#125;  <br>  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-4资源文件"><a href="#4-4资源文件" class="headerlink" title="4.4资源文件"></a>4.4资源文件</h2><p>此处可以自定义自己需要添加的配置文件，比如日志、数据库、应用、单元测试配置文件</p>
+<h2 id="4-5-高级配置（可选）"><a href="#4-5-高级配置（可选）" class="headerlink" title="4.5. 高级配置（可选）"></a><strong>4.5. 高级配置（可选）</strong></h2><ul>
+<li><strong>动态变量</strong> ：在 <code>archetype.properties</code> 中支持定义默认值。</li>
+<li><strong>多模块模板</strong> ：通过多个 <code>fileSet</code> 和子模块配置支持多模块项目。</li>
+<li><strong>按条件生成文件</strong> ：可以结合 Velocity 模板引擎（<code>.vm</code> 文件）实现逻辑控制。</li>
+</ul>
+<h1 id="五、-安装及部署模板"><a href="#五、-安装及部署模板" class="headerlink" title="五、 安装及部署模板"></a><strong>五、 安装及部署模板</strong></h1><h2 id="5-1-安装到本地仓库"><a href="#5-1-安装到本地仓库" class="headerlink" title="5.1 安装到本地仓库"></a><strong>5.1 安装到本地仓库</strong></h2><p>在模板项目根目录运行Maven命令：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn clean install<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://foruda.gitee.com/images/1747290633810551522/6ea2e383_526602.jpeg" alt="输入图片说明" title="254.jpg"></p>
+<ul>
+<li>生成的 Archetype 会安装到本地 Maven 仓库（默认位置<code>~/.m2/repository</code>）。</li>
+</ul>
+<h2 id="5-2-将模板部署到私有仓库"><a href="#5-2-将模板部署到私有仓库" class="headerlink" title="5.2. 将模板部署到私有仓库"></a><strong>5.2. 将模板部署到私有仓库</strong></h2><p>若要部署到私有仓库，在 <code>pom.xml</code> 中配置仓库地址后运行以下命令：</p>
+<figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn deploy<br></code></pre></td></tr></table></figure>
+
+<h1 id="六、-使用自定义模板来生成新Maven模块"><a href="#六、-使用自定义模板来生成新Maven模块" class="headerlink" title="六、 使用自定义模板来生成新Maven模块"></a><strong>六、 使用自定义模板来生成新Maven模块</strong></h1><h2 id="6-1-生成新Maven模块"><a href="#6-1-生成新Maven模块" class="headerlink" title="6.1 生成新Maven模块**"></a>6.1 生成新Maven模块**</h2><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">mvn archetype:generate -DarchetypeGroupId=pkg-group  -DarchetypeArtifactId=custom-archetype-id -DarchetypeVersion=1.0.0  -DgroupId=com.example   -DartifactId=new-project -Dversion=1.0.0  -DcustomProperty=hello  <br>  <br>mvn archetype:generate -DarchetypeGroupId=com.acanx.java.tool  -DarchetypeArtifactId=tool-archetype -DarchetypeVersion=0.1.6 -DgroupId=com.acanx.java.tool -DartifactId=tool-scf -Dversion=0.2.2<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://foruda.gitee.com/images/1747290699328149765/91369f14_526602.jpeg" alt="输入图片说明" title="255.jpg"></p>
+<p>通过以上步骤，可以实现一个高度定制化的 Maven 项目模板，来统一自己或者团队内的项目结构和依赖管理。</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      
+      <div class="post-tags">
+        
+        
+        
+        
+        <a class="post-tag button" href="/Blog/tags/Java/" style="background: #fc6423;" rel="tag"><i class="fas fa-tags"></i>Java</a>
+        
+        <a class="post-tag button" href="/Blog/tags/Maven/" style="background: #a3bb54;" rel="tag"><i class="fas fa-tags"></i>Maven</a>
+        
+        <a class="post-tag button" href="/Blog/tags/archetype/" style="background: #47aaff;" rel="tag"><i class="fas fa-tags"></i>archetype</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+<div class="reward" id="reward">
+  <p>坚持原创技术分享，您的支持是我前进的动力！</p>
+  <button id="reward-button" class="button" disable="enable">打赏</button>
+  <div id="qr" class="qr" style="display: none;">
+    
+    
+    
+  </div>
+</div>
+
+
+  
+  
+  <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+      
+      <a href="/Blog/2025/03/23/Kubernetes%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%88%98(V1.32.3)/" rel="next" title="Kubernetes集群部署实战(基于v1.32.3版本)"><i class="fas fa-angle-left"></i><span class="nav-title">Kubernetes集群部署实战(基于v1.32.3版本)</span></a>
+      
+    </div>
+    <div class="post-nav-prev post-nav-item">
+      
+    </div>
+  </div>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/Blog/images/sidebar_background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/Blog/images/avatar.png" alt="ACANX">
+  
+  <h1 class="author-name">ACANX</h1>
+  <h2 class="author-description"> 面朝大海的静态博客 <a target="_blank" rel="noopener" href="https://blog.acanx.com">另一个博客</a></h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/Blog/archives/">32</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/Blog/categories/">8</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/Blog/tags/">42</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/Blog/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+
+
+
+
+<hr>
+<div class="post-toc sidebar-item" id="toc-div">
+  <div><i class="fas fa-list-ol"></i>文章目录</div>
+  <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E4%B8%80%E3%80%81%E5%88%9B%E5%BB%BA%E5%8E%9F%E5%9E%8B%E6%A8%A1%E6%9D%BF%E9%A1%B9%E7%9B%AE"><span class="toc-text">一、创建原型模板项目</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80-%E4%BB%8E%E7%8E%B0%E6%9C%89%E9%A1%B9%E7%9B%AE%E7%94%9F%E6%88%90"><span class="toc-text">方式一 从现有项目生成</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C-%E6%89%8B%E5%8A%A8%E5%88%9B%E5%BB%BA"><span class="toc-text">方式二 手动创建</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E4%BA%8C%E3%80%81-%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF%E7%BB%93%E6%9E%84"><span class="toc-text">二、 配置模板结构</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%85%B3%E9%94%AE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">关键文件结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E4%B8%89%E3%80%81-%E7%BC%96%E8%BE%91%E8%B0%83%E6%95%B4-archetype-metadata-xml"><span class="toc-text">三、 编辑调整 archetype-metadata.xml</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E7%A4%BA%E4%BE%8B%E9%85%8D%E7%BD%AE"><span class="toc-text">示例配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E5%9B%9B%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6"><span class="toc-text">四、自定义模板文件</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#4-1-%E7%A4%BA%E4%BE%8B-pom-xml-%E6%A8%A1%E6%9D%BF"><span class="toc-text">4.1 示例 pom.xml 模板</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#4-2-Java-%E7%B1%BB%E6%A8%A1%E6%9D%BF"><span class="toc-text">4.2 Java 类模板</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#4-3-Java-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%B1%BB%E6%A8%A1%E6%9D%BF"><span class="toc-text">4.3 Java 单元测试类模板</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#4-4%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6"><span class="toc-text">4.4资源文件</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#4-5-%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">4.5. 高级配置（可选）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E4%BA%94%E3%80%81-%E5%AE%89%E8%A3%85%E5%8F%8A%E9%83%A8%E7%BD%B2%E6%A8%A1%E6%9D%BF"><span class="toc-text">五、 安装及部署模板</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#5-1-%E5%AE%89%E8%A3%85%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-text">5.1 安装到本地仓库</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#5-2-%E5%B0%86%E6%A8%A1%E6%9D%BF%E9%83%A8%E7%BD%B2%E5%88%B0%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93"><span class="toc-text">5.2. 将模板部署到私有仓库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#%E5%85%AD%E3%80%81-%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E6%9D%BF%E6%9D%A5%E7%94%9F%E6%88%90%E6%96%B0Maven%E6%A8%A1%E5%9D%97"><span class="toc-text">六、 使用自定义模板来生成新Maven模块</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#6-1-%E7%94%9F%E6%88%90%E6%96%B0Maven%E6%A8%A1%E5%9D%97"><span class="toc-text">6.1 生成新Maven模块**</span></a></li></ol></li></ol></div>
+</div>
+
+
+
+    
+    
+    
+<hr>
+<div class="social-link sidebar-item">
+  <div><i class="far fa-address-card"></i>社交链接</p></div>
+  <ul>
+    
+    <li><i class="fas fa-envelope"></i><a href="mailto:email@emailhost" target="_blank">E-Mail</a></li>
+    
+    <li><i class="fab fa-blog"></i><a href="https://blog.acanx.com/" target="_blank">Blog</a></li>
+    
+    <li><i class="fab fa-blog"></i><a href="https://acanx.github.io/Blog/" target="_blank">Blog</a></li>
+    
+    <li><i class="fab fa-weibo"></i><a href="https://weibo.com/" target="_blank">Weibo</a></li>
+    
+  </ul>
+</div>
+
+
+    
+    
+    
+<hr>
+<div class="blogroll sidebar-item">
+  <div><i class="fas fa-link"></i>友情链接</div>
+  <ul>
+    
+    <li><a href="https://acanx.github.io/Node/" target="_blank">Node</a></li>
+    
+  </ul>
+</div>
+
+
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <a id="back-to-top"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">ACANX</span><span class="year"><i class="far fa-copyright"></i>2025</span>
+        </div>
+        
+        
+<div class="busuanzi">
+  <span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv"></span></span>
+</div>
+
+
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>
