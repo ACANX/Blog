@@ -1,5 +1,5 @@
 ---
-title: 定制自己的 Maven 项目构件模板（Archetype）
+title: 定制自己的Maven项目构件模板（Archetype）
 date: 25-05-15 20:17:00
 categories: "Maven" #文章分类目录 可以省略
 tags: #Java 
